@@ -1,0 +1,192 @@
+    /*------- Colourful Tabs Menu by www.MyBloggerTricks.com -------*/
+    .MBT-Nav-container {
+        border: 1px solid #cfcfcf;
+        background: url(../images/menu-bgd.png) bottom left repeat-x;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #cfcfcf;
+    }
+
+    ul#nav {
+        border-left: 1px solid #cfcfcf;
+        border-right: 0px solid #cfcfcf;
+        background: url(../images/menu-bgd.png) bottom left repeat-x;
+        position: relative;
+        font-size: 12px;
+        font-family: helvetica, arial, sans-serif;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        width: 960px;
+    }
+
+    #nav ul {
+        margin: 0;
+
+    }
+
+    :focus {
+        outline: 0;
+    }
+
+    *html ul#nav {
+        clear: both;
+        height: 1%;
+    }
+
+    ul#nav li a {
+        display: block;
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+        line-height: 33px;
+        padding: 0 13px 0 10px;
+        color: #333;
+        text-decoration: none;
+        background: url(../images/menu-rule.png) right 2px no-repeat;
+    }
+
+    *html ul#nav li.top-link {
+        float: left;
+        margin: 0px 0 -13px 0;
+        padding-top: 2px;
+    }
+
+    *:first-child+html ul#nav li.top-link {
+        float: left;
+        margin: 0px 0 -13px 0;
+        padding-top: 2px;
+    }
+
+    ul#nav li a:hover, ul#nav li a.open {
+        color: #fff;
+    }
+
+    ul#nav li#mbt a:hover, ul#nav li#mbt a.open {
+        background: #0f1f37;
+    }
+
+    ul#nav li#link-resources a:hover, ul#nav li#link-resources a.open {
+        background: #b70943;
+    }
+
+    ul#nav li#link-sign-up a:hover, ul#nav li#link-sign-up a.open {
+        background: #b70943;
+    }
+
+    ul#nav li#link-opportunities a:hover, ul#nav li#link-opportunities a.open {
+        background: #cf3c02;
+    }
+
+    ul#nav li#link-programs a:hover, ul#nav li#link-programs a.open {
+        background: #724375;
+    }
+
+    ul#nav li#link-fund-raising a:hover, ul#nav li#link-fund-raising a.open {
+        background: #02b0cf;
+    }
+
+    ul#nav li#link-top10 a:hover, ul#nav li#link-top10 a.open {
+        background: #353533;
+    }
+
+    ul#nav li#links-1 a:hover, ul#nav li#links-1 a.open {
+        background: #b70943;
+    }
+
+    ul#nav li#links-2 a:hover, ul#nav li#links-2 a.open {
+        background: #289728;
+    }
+
+    ul#nav li#links-3 a:hover, ul#nav li#links-3 a.open {
+        background: #666666;
+    }
+
+    ul#nav li#links-4 a:hover, ul#nav li#links-4 a.open {
+        background: #b70943;
+    }
+
+    ul#nav li#link-home a {
+        padding: 0 33px 0 10px;
+        text-indent: -9999px;
+        background: url(../images/home-icon.png) right 0px no-repeat;
+    }
+
+    *html ul#nav li#link-home a {
+        padding: 0;
+        width: 43px;
+    }
+
+    ul#nav li#link-home a:hover {
+        background: url(../images/home-icon.png) right -33px no-repeat;
+    }
+
+    /* Sub-Vertical Navigation */
+    ul.sub-nav {
+        position: absolute;
+        top: 33px;
+        left: -1px;
+        overflow: hidden;
+        width: 960px;
+        display: none;
+        z-index: 999;                  `
+        list-style: none;
+        padding-left: 0px;
+    }
+
+    ul#nav li#link-resources ul.sub-nav {
+        background: #6f7987 url(../images/business-subnav-bgd.png) top left repeat-x;
+    }
+
+    ul#nav li#link-sign-up ul.sub-nav {
+        background: #d46b8e url(../images/entertainment-subnav-bgd.png) top left repeat-x;
+    }
+
+    ul#nav li#link-opportunities ul.sub-nav {
+        background: #e28a67 url(../images/news-subnav-bgd.png) top left repeat-x;
+    }
+
+    ul#nav li#link-programs ul.sub-nav {
+        background: #aa8eac url(../images/life-subnav-bgd.png) top left repeat-x;
+    }
+
+    ul#nav li#link-fund-raising ul.sub-nav {
+        background: #67d0e2 url(../images/technology-subnav-bgd.png) top left repeat-x;
+    }
+
+    ul#nav li ul.sub-nav li {
+        float: left;
+    }
+
+    ul#nav li ul.sub-nav li a {
+        float: none;
+        background: none;
+        font-size: 11px;
+        text-transform: none;
+        color: #fff;
+        line-height: 25px;
+    }
+
+    ul#nav li#link-resources ul.sub-nav li a:hover, ul#nav li#link-resources ul.sub-nav li a.active-cat {
+        background: #0f1f37 !important;
+    }
+
+    ul#nav li#link-sign-up ul.sub-nav li a:hover, ul#nav li#link-sign-up ul.sub-nav li a.active-cat {
+        background: #b70943 !important;
+    }
+
+    ul#nav li#link-opportunities ul.sub-nav li a:hover, ul#nav li#link-opportunities ul.sub-nav li a.active-cat {
+        background: #cf3c02 !important;
+    }
+
+    ul#nav li#link-programs ul.sub-nav li a:hover, ul#nav li#link-programs ul.sub-nav li a.active-cat {
+        background: #724375 !important;
+    }
+
+    ul#nav li#link-fund-raising ul.sub-nav li a:hover, ul#nav li#link-fund-raising ul.sub-nav li a.active-cat {
+        background: #02b0cf !important;
+    }
+
+
+}

@@ -1,0 +1,14 @@
+h1 {margin:0px; padding:0px; font-size:20px; text-transform:uppercase; font-weight:normal}
+h1 a {color:#FFFFFF; text-decoration:none}
+.ct1 {position:absolute; margin-top:100px; margin-left:75px; font-size:20px; text-transform:uppercase; color:#847462}
+.ct2 {position:absolute; margin-top:0px; margin-left:723px; width:227px; height:151px; z-index:20}
+h2 {margin:0px; padding:0px; text-transform:uppercase; font-size:28px; font-weight:normal; color:#847462}
+.ict1 {margin:10px; color:#847462}
+.lnk1 {color:#847462;margin:0 0 3px 0; display:block}
+.lnk2 {color:#847462;display:block}
+.hplist {margin:0; padding:0; list-style:none}
+.hplist li {padding-top:6px}
+.hplist li div {float:right}
+.hplist li a {color:#847462;display:block}
+h3 {margin-top:64px}
+.act1 {position:absolute; margin-top:0px; margin-left:481px; width:388px; height:151px}

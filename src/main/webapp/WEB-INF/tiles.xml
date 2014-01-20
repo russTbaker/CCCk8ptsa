@@ -1,0 +1,63 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- Layouts -->
+    <!--<definition name="baseLayout" template="/WEB-INF/view/layout/simpleLayout.jsp">-->
+        <!--<put-attribute name="title" value="Learn - Educate"/>-->
+        <!--<put-attribute name="header" value="/WEB-INF/view/layout/header.jsp"/>-->
+        <!--<put-attribute name="body" value=""/>-->
+        <!--<put-attribute name="footer" value="/WEB-INF/view/layout/footer.jsp"/>-->
+    <!--</definition>-->
+
+    <definition name="baseLayoutWithTopNav" template="/WEB-INF/view/layout/simpleLayoutWithTopNav.jsp">
+        <put-attribute name="title" value="Learn - Educate"/>
+        <put-attribute name="header" value="/WEB-INF/view/layout/header.jsp"/>
+        <put-attribute name="topnav" value="/WEB-INF/view/layout/topnav.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="sponsors" value="/WEB-INF/view/sponsors/sponsors.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/view/layout/footer.jsp"/>
+    </definition>
+
+
+
+
+    <!-- views -->
+
+    <!--
+                DASHBOARD
+    -->
+
+    <definition name="welcome" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Welcome to CCCK8 PTSA Website!"/>
+        <put-attribute name="body" value="/WEB-INF/view/index.jsp"/>
+    </definition>
+
+    <definition name="resources" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Welcome to CCCK8 PTSA Website!"/>
+        <put-attribute name="body" value="/WEB-INF/view/parents/resources.jsp"/>
+    </definition>
+
+    <definition name="signup" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Welcome to CCCK8 PTSA Website!"/>
+        <put-attribute name="body" value="/WEB-INF/view/volunteer/signup.jsp"/>
+    </definition>
+
+    <definition name="opportunities" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Welcome to CCCK8 PTSA Website!"/>
+        <put-attribute name="body" value="/WEB-INF/view/volunteer/opportunities.jsp"/>
+    </definition>
+
+    <definition name="fundraising" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Welcome to CCCK8 PTSA Website!"/>
+        <put-attribute name="body" value="/WEB-INF/view/fundraising/donate.jsp"/>
+    </definition>
+
+    <definition name="events" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Welcome to CCCK8 PTSA Website!"/>
+        <put-attribute name="body" value="/WEB-INF/view/events/events.jsp"/>
+    </definition>
+
+</tiles-definitions>
