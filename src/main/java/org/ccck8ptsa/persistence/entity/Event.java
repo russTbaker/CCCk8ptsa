@@ -43,17 +43,14 @@ import java.util.Date;
 @Table(name = "EVENT")
 @XmlRootElement(name = "Event")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Event implements Serializable {
+public class Event extends BaseEntity implements Serializable {
 
-    @Column(name = "EVENT_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date eventDate;
 
-    @Column(name = "EVENT_DATE")
+    @Column(name = "START_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date startTime;
 
-    @Column(name = "START_DATE")
+    @Column(name = "END_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endTime;
 
@@ -66,13 +63,6 @@ public class Event implements Serializable {
     @Column(name = "LOCATION")
     private String location;
 
-    public Date getEventDate() {
-        return eventDate;
-    }
-
-    public void setEventDate(Date eventDate) {
-        this.eventDate = eventDate;
-    }
 
     public Date getStartTime() {
         return startTime;
@@ -104,5 +94,10 @@ public class Event implements Serializable {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getSimpleName();
     }
 }
