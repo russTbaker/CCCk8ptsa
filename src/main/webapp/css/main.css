@@ -1,10 +1,10 @@
-body { font-family:arial, helvetica, san-serif ; font-size:11px; color:#333333; background-color: #ffffff; }
-p {font-size:11px; margin:4px 0 6px;}
-a {color:#CC0000;}
+body { font-family:arial, helvetica, san-serif ; font-size:13px; color:#333333; background-color: #ffffff; margin:0}
+p {font-size:13px; margin:4px 0 6px; margin-top:0.5em;}
+a {color: #3366ff;}
 img {display:block;}
-a:focus, a:hover, a:active { outline:none }
+/*a:focus, a:hover, a:active { outline:none }*/
 ul {position:relative;}
-h1 { font-size:22px; color:#CC0000; margin:0 0 16px; padding:0; font-weight:bold;}
+h1 { font-size:22px; color: #000000; margin:0 0 16px; padding:0; font-weight:bold;}
 h1 div {font-size:12px;}
 h2 { font-size:14px; color:#877C6F; margin:-12px 0 22px; padding:0; font-weight:normal;}
 h3 { font-size:12px; color:#FFFFFF; margin:16px 0 6px; padding:4px; line-height:10px; font-weight:bold;text-transform:uppercase; background-color:#CC0000; }/*position:relative;*/
@@ -20,6 +20,13 @@ h6 {color:#333333; text-transform:lowercase; font-size:13px; padding:0px; font-w
 .tableReport-tr0 {vertical-align:middle;background-color:#ffd700;text-align:center;}
 .tableReport-tr1 {vertical-align:middle;background-color:#6495ed;text-align:center;}
 .tableReport-th {vertical-align:middle;background-color:#e9967a;text-align:center;}
+
+.handbook-worksheet-title{
+    text-align:center;
+    text-decoration:underline;
+    font-weight:bold;
+    font-size:18px;
+}
 /*.table{*/
     /*border-collapse: collapse;*/
     /*display:table;*/
@@ -111,11 +118,6 @@ div.sidebarDivider {height:2px; border:none; margin:0px; padding:0; line-height:
 .message { border:1px solid #877C6F;}
 .messageImportant { border:1px solid #877C6F !important;}
 
-/*Deck gen styles*/
-.sliderRailText {background:url(../images/DeckGen/sliderRailBG_Text.gif) top left repeat-x; width:128px; height:32px;position: relative;background-color: transparent; }
-.sliderRailImage {background:url(../images/DeckGen/sliderRailBG_Image.gif) top left no-repeat; width:128px; height:32px;position: relative;background-color: transparent; }
-.sliderHandleText { height:32px; width:10px; cursor:pointer;}
-.alignmentSelected { background:url(../images/DeckGen/textSelectedBG.gif) top left no-repeat;}
 
 #addComplete p input {position: absolute;}
 #addComplete p label {display: block;padding:2px 0 0 20px;width:160px;}

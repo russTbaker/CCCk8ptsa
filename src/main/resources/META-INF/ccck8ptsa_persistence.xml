@@ -2,15 +2,14 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
     <persistence-unit name="ccck8ptsa" transaction-type="RESOURCE_LOCAL">
         <class>org.ccck8ptsa.persistence.entity.DonorRelationships</class>
-        <class>org.ccck8ptsa.persistence.entity.Event</class>
+        <class>org.ccck8ptsa.persistence.entity.VolunteerSpotProxy</class>
         <class>org.ccck8ptsa.persistence.entity.Organization</class>
         <class>org.ccck8ptsa.persistence.entity.Party</class>
         <class>org.ccck8ptsa.persistence.entity.Person</class>
-        <class>org.ccck8ptsa.persistence.entity.PTSAMember</class>
-        <class>org.ccck8ptsa.persistence.entity.PTSARelationships</class>
+        <class>org.ccck8ptsa.persistence.entity.PartyOrganizationRelationships</class>
         <class>org.ccck8ptsa.persistence.entity.Teacher</class>
         <class>org.ccck8ptsa.persistence.entity.Volunteer</class>
-        <class>org.ccck8ptsa.persistence.entity.VolunteerRelationships</class>
+        <class>org.ccck8ptsa.persistence.entity.PersonEventRelationships</class>
 
         <validation-mode>NONE</validation-mode>
         <properties>

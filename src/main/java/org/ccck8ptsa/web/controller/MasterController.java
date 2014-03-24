@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, RBC, LLC.
+ * Copyright (c) 2014, RBC, Inc.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,14 +9,14 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the RBC, LLC. nor the
+ *     * Neither the name of the <organization> nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL RBC, LLC. BE LIABLE FOR ANY
+ * DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -30,21 +30,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * OpportunitiesController.java
+ * MasterController.java
  *
  * @author: Russ
- * @since Jan 20, 2014:10:57:42 AM
+ * @since Mar 22, 2014:6:26:41 PM
  */
-@Controller(value = "opportunitiesController")
-@RequestMapping("opportunities.htm")
-public class OpportunitiesController {
-
+@Controller
+@RequestMapping("/master")
+public class MasterController {
     @RequestMapping(method = RequestMethod.GET)
-    public String welcome(ModelMap model, HttpServletRequest request) {
-        return "opportunities";
+    public String redirect(@RequestParam("view") String view) {
+        return view;
     }
 }

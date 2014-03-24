@@ -1,6 +1,6 @@
 package org.ccck8ptsa.persistence.dao.api;
 
-import org.ccck8ptsa.persistence.entity.Event;
+import org.ccck8ptsa.persistence.entity.VolunteerSpotProxy;
 
 /**
  * EventDao.java
@@ -8,5 +8,5 @@ import org.ccck8ptsa.persistence.entity.Event;
  * @author: Russ
  * @since Jan 20, 2014:3:52:12 PM
  */
-public interface EventDao extends BaseDao<Event,String> {
+public interface EventDao extends BaseDao<VolunteerSpotProxy,String> {
 }

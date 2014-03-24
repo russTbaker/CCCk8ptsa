@@ -6,10 +6,10 @@
 
     <!-- Layouts -->
     <!--<definition name="baseLayout" template="/WEB-INF/view/layout/simpleLayout.jsp">-->
-        <!--<put-attribute name="title" value="Learn - Educate"/>-->
-        <!--<put-attribute name="header" value="/WEB-INF/view/layout/header.jsp"/>-->
-        <!--<put-attribute name="body" value=""/>-->
-        <!--<put-attribute name="footer" value="/WEB-INF/view/layout/footer.jsp"/>-->
+    <!--<put-attribute name="title" value="Learn - Educate"/>-->
+    <!--<put-attribute name="header" value="/WEB-INF/view/layout/header.jsp"/>-->
+    <!--<put-attribute name="body" value=""/>-->
+    <!--<put-attribute name="footer" value="/WEB-INF/view/layout/footer.jsp"/>-->
     <!--</definition>-->
 
     <definition name="baseLayoutWithTopNav" template="/WEB-INF/view/layout/simpleLayoutWithTopNav.jsp">
@@ -20,8 +20,6 @@
         <put-attribute name="sponsors" value="/WEB-INF/view/sponsors/sponsors.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/view/layout/footer.jsp"/>
     </definition>
-
-
 
 
     <!-- views -->
@@ -59,5 +57,17 @@
         <put-attribute name="title" value="Welcome to CCCK8 PTSA Website!"/>
         <put-attribute name="body" value="/WEB-INF/view/events/events.jsp"/>
     </definition>
+
+    <definition name="enrichmentcoordinatorhandbook" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Enrichment Coordinator Handbook"/>
+        <put-attribute name="body" value="/WEB-INF/view/handbooks/enrichmentcoordinatorhandbook.jsp"/>
+    </definition>
+
+    <definition name="thirdandfourthgradevolunteercoordinatorhandbook" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Enrichment Coordinator Handbook"/>
+        <put-attribute name="body" value="/WEB-INF/view/handbooks/thirdandfourthgradevolunteercoordinatorhandbook.jsp"/>
+    </definition>
+
+    
 
 </tiles-definitions>

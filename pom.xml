@@ -119,7 +119,7 @@
         <!--   Spring Security Dependencies                  -->
         <!-- =============================================== -->
 
-
+ <!--
         <dependency>
             <groupId>org.jasig.cas.client</groupId>
             <artifactId>cas-client-core</artifactId>
@@ -132,9 +132,10 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
+        -->
 
         <!-- Spring -->
-        <dependency>
+    <!--    <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
@@ -217,7 +218,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- Spring Security -->
-        <dependency>
+    <!--    <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
             <version>${spring.security.version}</version>
@@ -244,7 +245,7 @@
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>1.4.3</version>
-        </dependency>
+        </dependency>  -->
 
         <!-- Quartz framework -->
         <dependency>
@@ -257,7 +258,7 @@
         <!--   JSR-311 Dependencies                          -->
         <!-- =============================================== -->
 
-        <dependency>
+    <!--    <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
             <version>${cxf.version}</version>
@@ -284,7 +285,7 @@
                     <artifactId>spring-web</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>   -->
         <!-- =============================================== -->
         <!--   JSTL Dependencies                              -->
         <!-- =============================================== -->

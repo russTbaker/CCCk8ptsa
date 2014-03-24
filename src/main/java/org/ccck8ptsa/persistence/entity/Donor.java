@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, ReminderPortal, Inc.
+ * Copyright (c) 2014, RBC, LLC.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,14 +9,14 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the <organization> nor the
+ *     * Neither the name of the RBC, LLC. nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+ * DISCLAIMED. IN NO EVENT SHALL RBC, LLC. BE LIABLE FOR ANY
  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -30,58 +30,79 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
- * PTSARelationships.java
+ * Donor.java
  *
  * @author: Russ
- * @since Jan 20, 2014:12:27:20 PM
+ * @since Jan 25, 2014:10:52:31 AM
  */
 @Entity
-@Table(name = "PTSA_RELATIONSHIPS")
-@XmlRootElement(name = "PtsaRelationships")
+@Table(name = "DONOR",uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
+@PrimaryKeyJoinColumn(name = "DONOR_ID")
+@XmlRootElement(name = "Donor")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class PTSARelationships {
-    public PTSARelationships() {
-    }
+public class Donor extends Party implements Serializable {
 
-    @Id
-    @GeneratedValue
-    private String ptsaRelationshipId;
+    @Column(name = "DONOR_NAME")
+    private String donorName;
 
-    @JoinColumn(updatable = false)
-    private PTSAMember ptsaMember;
+    @Column(name = "DISPLAY_NAME")
+    private String displayName;
+
+    @Column(name = "DESCRIPTION")
+    private String description;
+
+    @Column(name = "LOGO")
+    @Lob
+    private byte[] logo;
 
     @JoinColumn
-    private Teacher teacher;
+    private Person contact;
 
-    public enum PTSARelationshipType {
-        MEMBER,
-        ORGANIZER,
-        ADMIN
+    public String getDescription() {
+        return description;
     }
 
-    public String getPtsaRelationshipId() {
-        return ptsaRelationshipId;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setPtsaRelationshipId(String ptsaRelationshipId) {
-        this.ptsaRelationshipId = ptsaRelationshipId;
+    public byte[] getLogo() {
+        return logo;
     }
 
-    public PTSAMember getPtsaMember() {
-        return ptsaMember;
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
     }
 
-    public void setPtsaMember(PTSAMember ptsaMember) {
-        this.ptsaMember = ptsaMember;
+    public Person getContact() {
+        return contact;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public void setContact(Person contact) {
+        this.contact = contact;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public String getDonorName() {
+        return donorName;
+    }
+
+    public void setDonorName(String donorName) {
+        this.donorName = donorName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    @Override
+    public String getClassName() {
+        return null;
     }
 }

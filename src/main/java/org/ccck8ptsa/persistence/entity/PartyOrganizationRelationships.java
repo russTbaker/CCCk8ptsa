@@ -32,39 +32,44 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * DonorRelationships.java Defines the relationship between a <code>Donor</code> and an <code>Organization</code>.
- * for example, a school.
+ * PartyOrganizationRelationships.java
+ * Defines the relationship between a <code>Person</code> and an <code>Organization</code>. For example, a relationship
+ * between a <code>Teacher</code>, <code>SchoolPrincipal</code>, <code>Volunteer</code> and a school.
  *
  * @author: Russ
- * @since Jan 20, 2014:12:30:04 PM
+ * @since Jan 20, 2014:12:27:20 PM
  */
 @Entity
-@Table(name = "DONOR_RELATIONSHIPS")
-@XmlRootElement(name = "DonorRelationships")
+@Table(name = "PARTY_ORGANIZATION_RELATIONSHIPS")
+@XmlRootElement(name = "PtsaRelationships")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DonorRelationships {
+public class PartyOrganizationRelationships {
+    public PartyOrganizationRelationships() {
+    }
+
     @Id
     @GeneratedValue
-    private String donorRelationshipId;
+    private String id;
 
     @JoinColumn(updatable = false)
     private Organization organization;
 
     @JoinColumn
-    private Organization ptsa;
+    private Person person;
 
-    public enum DonorRelationshipTypes{
-        YEARLY,
-        MONTHLY,
-        NO_SCHEDULE
+    public enum PersonOrganizationRelationshipType {
+        DONATES_MONEY,
+        DONATES_SERVICES,
+        WORKS_AT,
+        VOLUNTEERS_AT
     }
 
-    public String getDonorRelationshipId() {
-        return donorRelationshipId;
+    public String getId() {
+        return id;
     }
 
-    public void setDonorRelationshipId(String donorRelationshipId) {
-        this.donorRelationshipId = donorRelationshipId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Organization getOrganization() {
@@ -75,11 +80,11 @@ public class DonorRelationships {
         this.organization = organization;
     }
 
-    public Organization getPtsa() {
-        return ptsa;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setPtsa(Organization ptsa) {
-        this.ptsa = ptsa;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }

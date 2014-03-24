@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <link href="<c:url value='/resources/css/main.css' />" rel="stylesheet">
-    <link href="<c:url value='/resources/css/home.css' />" rel="stylesheet">
+    <link href="<c:url value='/css/main.css' />" rel="stylesheet">
+    <link href="<c:url value='/css/home.css' />" rel="stylesheet">
     <title><tiles:insertAttribute name="title" ignore="true"/></title>
 </head>
 <body>

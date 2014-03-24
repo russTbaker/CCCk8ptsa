@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, RBC, Inc.
+ * Copyright (c) 2014, RBC, LLC.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,14 +9,14 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the <organization> nor the
+ *     * Neither the name of the RBC, LLC. nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+ * DISCLAIMED. IN NO EVENT SHALL RBC, LLC. BE LIABLE FOR ANY
  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -28,6 +28,7 @@ package org.ccck8ptsa.persistence.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.security.SecureRandom;
 
 /**
  * Party.java
@@ -36,51 +37,29 @@ import java.io.Serializable;
  * @since Jan 20, 2014:12:09:42 PM
  */
 @Entity
-@Table(name = "PARTY",uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
+@Table(name = "PARTY")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Party extends BaseEntity implements Serializable {
 
-    @Column(name = "FIRST_NAME")
-    private String firstName;
+    @Column(name = "PASSWORD")
+    private String password;
 
-    @Column(name = "LAST_NAME")
-    private String lastName;
+    @Column(name = "SALT")
+    private SecureRandom salt;
 
-    @Column(name = "PHONE")
-    private String phone;
-
-    @Column(name = "EMAIL")
-    private String email;
-
-    public String getFirstName() {
-        return firstName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getLastName() {
-        return lastName;
+    public SecureRandom getSalt() {
+        return salt;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSalt(SecureRandom salt) {
+        this.salt = salt;
     }
 }

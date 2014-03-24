@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, RBC, Inc.
+ * Copyright (c) 2014, RBC, LLC.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,14 +9,14 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the <organization> nor the
+ *     * Neither the name of the RBC, LLC. nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+ * DISCLAIMED. IN NO EVENT SHALL RBC, LLC. BE LIABLE FOR ANY
  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -28,7 +28,7 @@ package org.ccck8ptsa.persistence.dao;
 
 import org.ccck8ptsa.persistence.dao.api.EventDao;
 import org.ccck8ptsa.persistence.entity.BaseEntity;
-import org.ccck8ptsa.persistence.entity.Event;
+import org.ccck8ptsa.persistence.entity.VolunteerSpotProxy;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +53,7 @@ import static junit.framework.Assert.assertNotNull;
 @ContextConfiguration(locations = {"classpath:/test-config.xml"})
 @TransactionConfiguration(transactionManager = "jpaTestTransactionManager", defaultRollback = true)
 @Transactional
-public class EventDaoTest extends BaseDaoTest<Event, EventDao>{
+public class EventDaoTest extends BaseDaoTest<VolunteerSpotProxy, EventDao>{
 
     @Autowired
     @Qualifier(value = "eventDaoJpa")
@@ -68,12 +68,12 @@ public class EventDaoTest extends BaseDaoTest<Event, EventDao>{
     protected BaseEntity doInsert() {
         Calendar tomorrow = Calendar.getInstance();
         tomorrow.add(Calendar.DATE,1);
-        Event event = new Event();
-        event.setStartTime(new Date());
-        event.setEndTime(tomorrow.getTime());
-        event.setLocation("Here");
-        Event result = eventDao.create(event);
-        assertNotNull("Event not created",event);
+        VolunteerSpotProxy event = new VolunteerSpotProxy();
+//        event.setStartTime(new Date());
+//        event.setEndTime(tomorrow.getTime());
+//        event.setLocation("Here");
+        VolunteerSpotProxy result = eventDao.create(event);
+        assertNotNull("VolunteerSpotProxy not created",event);
         return result;
     }
 }

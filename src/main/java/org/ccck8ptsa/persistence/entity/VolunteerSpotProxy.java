@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, ReminderPortal, Inc.
+ * Copyright (c) 2014, RBC, LLC.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,14 +9,14 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the <organization> nor the
+ *     * Neither the name of the RBC, LLC. nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+ * DISCLAIMED. IN NO EVENT SHALL RBC, LLC. BE LIABLE FOR ANY
  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -30,56 +30,45 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+import java.util.List;
 
 /**
- * VolunteerRelationships.java
+ * VolunteerSpotProxy.java
  *
  * @author: Russ
- * @since Jan 20, 2014:12:21:38 PM
+ * @since Jan 20, 2014:12:35:30 PM
  */
 @Entity
-@Table(name = "VOLUNTEER_RELATIONSHIPS")
-@XmlRootElement(name = "VolunteerRelationships")
+@Table(name = "VOLUNTEER_SPOT_PROXY")
+@XmlRootElement(name = "VolunteerSpotProxy")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class VolunteerRelationships {
-    public VolunteerRelationships() {
+public class VolunteerSpotProxy extends BaseEntity implements Serializable {
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "personId")
+    private List<Person> people;
+
+    @Column(name = "VOLUNTEER_SPOT_URL")
+    private String volunteerSpotUrl;
+
+    public List<Person> getPeople() {
+        return people;
     }
 
-    @Id
-    @GeneratedValue
-    private String volunteerRelationshipId;
-
-    @JoinColumn(updatable = false)
-    private Volunteer volunteer;
-
-    @JoinColumn
-    private Teacher teacher;
-
-    public enum VolunteerRelationshipType {
-        TUTORING
+    public void setPeople(List<Person> people) {
+        this.people = people;
     }
 
-    public String getVolunteerRelationshipId() {
-        return volunteerRelationshipId;
+    public String getVolunteerSpotUrl() {
+        return volunteerSpotUrl;
     }
 
-    public void setVolunteerRelationshipId(String volunteerRelationshipId) {
-        this.volunteerRelationshipId = volunteerRelationshipId;
+    public void setVolunteerSpotUrl(String volunteerSpotUrl) {
+        this.volunteerSpotUrl = volunteerSpotUrl;
     }
 
-    public Volunteer getVolunteer() {
-        return volunteer;
-    }
-
-    public void setVolunteer(Volunteer volunteer) {
-        this.volunteer = volunteer;
-    }
-
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    @Override
+    public String getClassName() {
+        return getClass().getSimpleName();
     }
 }

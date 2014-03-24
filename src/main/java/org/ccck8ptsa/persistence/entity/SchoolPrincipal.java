@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, ReminderPortal, Inc.
+ * Copyright (c) 2014, RBC, LLC.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -9,14 +9,14 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the <organization> nor the
+ *     * Neither the name of the RBC, LLC. nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+ * DISCLAIMED. IN NO EVENT SHALL RBC, LLC. BE LIABLE FOR ANY
  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -26,78 +26,24 @@
  */
 package org.ccck8ptsa.persistence.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
- * Event.java
+ * SchoolPrincipal.java
  *
  * @author: Russ
- * @since Jan 20, 2014:12:35:30 PM
+ * @since Jan 25, 2014:10:43:56 AM
  */
 @Entity
-@Table(name = "EVENT")
-@XmlRootElement(name = "Event")
+@Table(name = "SCHOOL_PRINCIAL")
+@PrimaryKeyJoinColumn(name = "SCHOOL_PRINCIAL_ID")
+@XmlRootElement(name = "SchoolPrincipal")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Event extends BaseEntity implements Serializable {
-
-
-    @Column(name = "START_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date startTime;
-
-    @Column(name = "END_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date endTime;
-
-    /**
-     * Who will be helping
-     */
-    @JoinColumn
-    private VolunteerRelationships volunteerRelationship;
-
-    @Column(name = "LOCATION")
-    private String location;
-
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public VolunteerRelationships getVolunteerRelationship() {
-        return volunteerRelationship;
-    }
-
-    public void setVolunteerRelationship(VolunteerRelationships volunteerRelationship) {
-        this.volunteerRelationship = volunteerRelationship;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    @Override
-    public String getClassName() {
-        return getClass().getSimpleName();
-    }
+public class SchoolPrincipal extends Person implements Serializable {
 }

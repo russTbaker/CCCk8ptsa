@@ -1,87 +1,104 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Russ
-  Date: Dec 18, 2013
-  Time: 12:10:07 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<style type="text/css">
-    body {
-        margin: 0px;
-        padding: 0px;
-    }
-</style>
+<script type="text/javascript"
+        src="<c:url value='/resources/js/jquery-2.0.3.min.js'/>"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
 
-<%--<script src='<c:url value='/resources/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js'/>' type='text/javascript'></script>--%>
+        // Function for navigating different coloured bars, only needed in the demo
+        $(".navWrap a").click(function() {
+            var activeTab = $(this).attr("href");
+            $(activeTab).show().addClass('activeMenu');
+            $(activeTab).siblings('.wrapper').hide().removeClass('activeMenu');
+            return false;
+        });
 
+        // Requried: Navigation bar drop-down
+        $("nav ul li").hover(function() {
+            $(this).addClass("active");
+            $(this).find("ul").show().animate({opacity: 1}, 400);
+        }, function() {
+            $(this).find("ul").hide().animate({opacity: 0}, 200);
+            $(this).removeClass("active");
+        });
 
-<script src='<c:url value='/resources/js/colourful/jquery-pack-colourful.js'/>' type='text/javascript'></script>
-<script src='<c:url value='/resources/js/colourful/jcarousel-colourful.js'/>' type='text/javascript'></script>
-<script src='<c:url value='/resources/js/colourful/mt-colourful.js'/>' type='text/javascript'></script>
-<link href="<c:url value='/resources/css/colourfultabs.css'/>" rel="stylesheet">
-<!--START OF COLOURFUL TABS BY MBT-->
+        // Requried: Addtional styling elements
+        $('nav ul li ul li:first-child').prepend('<li class="arrow"></li>');
+        $('nav ul li:first-child').addClass('first');
+        $('nav ul li:last-child').addClass('last');
+        $('nav ul li ul').parent().append('<span class="dropdown"></span>').addClass('drop');
 
-<div class='MBT-Nav-container'>
-    <ul id='nav'>
+    });
+</script>
+<!-- END JavaScript -->
+<link rel="stylesheet" href="<c:url value='/resources/jquery-powered-html5-navigation-menu/Blue/css/navbar.css'/>">
 
-        <li class='non-vertical-link top-link' id='link-home'><a class='open' href='<%=request.getContextPath()%>/welcome.htm' onclick="highlightTab('home')">Home</a></li>
-
-        <li class='top-link' id='link-resources'><a href='<%=request.getContextPath()%>/resources.htm' onclick="highlightTab('resources')">Parent Resurces</a>
-            <ul class='sub-nav' style="display:none">
-            <li><a href='#'>SUB TAB 1.1</a></li>
-            <li><a href='#'>SUB TAB 1.2</a></li>
-            <li><a href='#'>SUB TAB 1.3</a></li>
-            <li><a href='#'>SUB TAB 1.4</a></li>
-            </ul>
-        </li>
-
-        <li class='top-link' id='link-sign-up'><a href='<%=request.getContextPath()%>/signup.htm' onclick="highlightTab('sign-up')">Volunteer Sign up</a>
-            <ul class='sub-nav' style='display: none;'>
-                <li><a href='#'>SUB TAB 2.1</a></li>
-                <li><a href='#'>SUB TAB 2.2</a></li>
-                <li><a href='#'>SUB TAB 2.3</a></li>
-                <li><a href='#'>SUB TAB 2.4</a></li>
-                <li><a href='#'>SUB TAB 2.5</a></li>
-            </ul>
-        </li>
-
-        <li class='top-link' id='link-opportunities'><a href='<%=request.getContextPath()%>/opportunities.htm' onclick="highlightTab('opportunities')">Volunteer Opportunities</a>
-            <ul class='sub-nav' style='display: none;'>
-                <li><a href='#'>SUB TAB 3.1</a></li>
-                <li><a href='#'>SUB TAB 3.2</a></li>
-                <li><a href='#'>SUB TAB 3.3</a></li>
-                <li><a href='#'>SUB TAB 3.4</a></li>
-            </ul>
-        </li>
-
-        <li class='top-link' id='link-programs'><a href='<%=request.getContextPath()%>/events.htm' onclick="highlightTab('programs')">Programs &amp; Events</a>
-            <ul class='sub-nav' style='display: none;'>
-                <li><a href='#'>SUB TAB 4.1</a></li>
-                <li><a href='#'>SUB TAB 4.2</a></li>
-                <li><a href='#'>SUB TAB 4.3</a></li>
-                <li><a href='#'>SUB TAB 4.4</a></li>
-                <li><a href='#'>SUB TAB 4.5</a></li>
-                <li><a href='#'>SUB TAB 4.6</a></li>
-                <li><a href='#'>SUB TAB 4.7</a></li>
-            </ul>
-        </li>
-
-        <li class='top-link' id='link-fund-raising'><a href='<%=request.getContextPath()%>/fundraising.htm' onclick="highlightTab('fund-raising')">Fundraising</a>
-            <ul class='sub-nav' style='display: none;'>
-                <li><a href='#'>SUB TAB 5.1</a></li>
-                <li><a href='#'>SUB TAB 5.2</a></li>
-                <li><a href='#'>SUB TAB 5.3</a></li>
-                <li><a href='#'>SUB TAB 5.4</a></li>
-                <li><a href='#'>SUB TAB 5.5</a></li>
-            </ul>
-        </li>
-
-
-        <li style='clear: both;'/>
-    </ul>
+<div align="center" class="wrapper activeMenu" id="dark">
+    <!-- BEGIN Dark navigation bar -->
+    <nav class="blue">
+        <ul class="clear">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Programs & Events</a>
+                <ul>
+                    <li><a href="#">After School Programs</a></li>
+                    <li><a href="#">In School Enrichment</a></li>
+                    <li><a href="#">Health & Wellness</a></li>
+                    <li><a href="#">Reflections</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Parent Resources</a>
+                <ul>
+                    <li><a href="#">Curriculum Support</a></li>
+                    <li><a href="#">PTA</a></li>
+                    <li><a href="#">Jeffco Schools</a></li>
+                    <li><a href="#">Legislative</a></li>
+                    <li><a href="#">Just for Kids</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Volunteer</a>
+                <ul>
+                    <li><a href="#">In Class Volunteering</a></li>
+                    <li><a href="#">Offsite Volunteering</a></li>
+                    <li><a href="#">Help Wanted</a></li>
+                    <li><a href="#">Job Descriptions</a></li>
+                    <li><strong>Volunteer Handbooks</strong>
+                        <ul>
+                            <li><a href="<c:url value='/master.htm?view=enrichmentcoordinatorhandbook'/>">Enrichment
+                                Coordinator Handbooks</a></li>
+                            <li>
+                                <a href="<c:url value='/master.htm?view=thirdandfourthgradevolunteercoordinatorhandbook'/>">Third
+                                    And Fourth Grade Volunteer Coordinator Handbooks</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">Fundraising</a>
+                <ul>
+                    <li><a href="#">Donate / Special Giving</a></li>
+                    <li><a href="#">Box Tops</a></li>
+                    <li><a href="#">King Soopers Cards</a></li>
+                    <li><a href="#">Fundraising Events</a></li>
+                    <li><a href="#">Outdoor Lab</a></li>
+                    <li><a href="#">DC Trip </a></li>
+                </ul>
+            </li>
+            <li><a href="#">Join, Donate</a>
+                <ul>
+                    <li><a href="#">Join PTSA</a></li>
+                    <li><a href="#">Pay PTSA</a></li>
+                    <li><a href="#">Donate to PTSA</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Information</a>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Meeting Minutes & Agendas</a></li>
+                    <li><a href="#">Forms</a></li>
+                    <li><a href="#">C3AC</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- END Dark navigation bar -->
 </div>
-<!--END OF COLOURFUL TABS BY MBT-->
