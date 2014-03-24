@@ -68,6 +68,21 @@
         <put-attribute name="body" value="/WEB-INF/view/handbooks/thirdandfourthgradevolunteercoordinatorhandbook.jsp"/>
     </definition>
 
-    
+
+    <definition name="thirdandfourthgraderoomparenthandbook" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Third and Fourth Grades Room Parent Handbook"/>
+        <put-attribute name="body" value="/WEB-INF/view/handbooks/thirdandfourthgraderoomparenthandbook.jsp"/>
+    </definition>
+
+    <definition name="middlelevelenrichmentcoordinatorhandbook" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Middle Level Enrichment Coordinator Handbook"/>
+        <put-attribute name="body" value="/WEB-INF/view/handbooks/middlelevelenrichmentcoordinatorhandbook.jsp"/>
+    </definition>
+
+
+    <definition name="middlelevelclassroomvolunteercoordinatorhandbook" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Middle Level Enrichment Coordinator Handbook"/>
+        <put-attribute name="body" value="/WEB-INF/view/handbooks/middlelevelclassroomvolunteercoordinatorhandbook.jsp"/>
+    </definition>
 
 </tiles-definitions>

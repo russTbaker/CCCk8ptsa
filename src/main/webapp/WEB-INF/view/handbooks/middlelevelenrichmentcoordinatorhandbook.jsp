@@ -1,9 +1,11 @@
-<div align="center"><h1>Third and Fourth Grades Enrichment Coordinator Handbook</h1></div>
+<h1>Middle Level Enrichment Coordinator Handbook</h1>
 <hr size="1">
-<p>Thank you for volunteering your time to be the Enrichment Coordinator for the 3rd and 4th grades. As the
+<p>
+    Thank you for volunteering your time to be the Enrichment Coordinator for the Middle Level grades. As the
     Enrichment Coordinator you will be working closely with the teacher and PTSA to coordinate guest speakers
     and outside programs that enrich what our kids are learning in the classroom. The PTSA has put together this
-    manual to help guide you through the process.</p>
+    manual to help guide you through the process.
+</p>
 
 <p>Thanks for making a difference.</p>
 
@@ -12,7 +14,8 @@
 <ul>
     <li>Send an email to the teachers in the teachers to introduce yourself and give them your contact
         information. Set up a time that you can meet with both teachers to go over classroom enrichment
-        opportunity goals for the year and <u>about which month</u> they will need them. Keep in mind that outside
+        opportunity goals for the year and <b><u>about which month</u></b> they will need them. Keep in mind that
+        outside
         programs that come into the school to do demonstrations could take time to set up and acquire funds.
     </li>
     <li>Send a letter (see sample letter at the back of handbook) in the Friday Folder introducing yourself to the
@@ -25,24 +28,24 @@
 </ul>
 <div style="font-weight:bold">September thru May:</div>
 <ul>
-    <li> Research each goal for enrichment that you have talked about with the teacher. If there are several
+    <li>Research each goal for enrichment that you have talked about with the teacher. If there are several
         different opportunities, email the teachers to let them decide which one would best meet their needs. If
         funds are required, talk with the teacher to see if there is enough money in the classroom enrichment
         fund or if PTSA will be needed to pay for the event. Once you have verified that you have obtained the
         funding, fill out any paperwork needed to set up the event. Keep in mind that some in-school
         enrichment programs need at least a month to set up. Please feel free to be creative in your efforts.
     </li>
-    <li>Please keep a record of the guest speakers and programs that you have set up in the Record Keeping</li>
-    section of this manual.
+    <li>Please keep a record of the guest speakers and programs that you have set up in the Record Keeping
+        section of this manual.
+    </li>
 </ul>
 <div style="font-weight:bold">May:</div>
 <ul>
     <li>Return this manual to the PTSA Volunteer Coordinator</li>
 </ul>
-
 <div class="handbook-worksheet-title">Guest Speaker & Enrichment Program Worksheet</div>
-<div style="text-decoration:underline">
-    <table cellpadding="0" cellspacing="0" border="0">
+<div style="text-decoration:underline;padding-left:20%">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
         <tr>
             <td width="30%">Subject</td>
             <td width="30%">Ideas</td>
@@ -52,7 +55,14 @@
 </div>
 <br/>
 <br/>
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <div align="center" style="font-weight:bold; text-decoration:underline">Guest speakers</div>
 <p>
     The teacher may ask for guest speakers that will come into the class room and talk about a variety of subjects.
@@ -88,13 +98,13 @@
 </ul>
 <div align="center" style="font-weight:bold; text-decoration:underline">Enrichment Programs or Field trips</div>
 <p>
-    Enrichment programs are usually outside groups that come into the school to do hands on presentations to the
-    class. Usually they are for science and social studies. Some groups may utilize Skype to do their presentation.
-    Most of these type presentations will require at least a month to set up and there will be a fee associated with
-    them. The number of outreach programs that each grade level can have will be dependent on the funds
-    available in any given year, so it is important to determine which units the teachers feel would benefit the most
-    from these outreach programs. Some of the national museums, like the Smithsonian in Washington DC may
-    offer free Skype presentations for study units.
+    Enrichment programs are usually outside groups that come into the school to do hands on presentations to
+    the class. Usually they are for science and social studies. Some groups may utilize Skype to do their
+    presentation. Most of these type presentations will require at least a month to set up and there will be a fee
+    associated with them. The number of outreach programs that each grade level can have will be dependent on
+    the funds available in any given year, so it is important to determine which units the teachers feel would
+    benefit the most from these outreach programs. Some of the national museums, like the Smithsonian in
+    Washington DC may offer free Skype presentations for study units.
 </p>
 
 <div align="center" style="font-weight:bold; text-decoration:underline">Ideas for finding Enrichment Programs</div>
@@ -163,7 +173,9 @@
 </ol>
 <p>Feel free to add to this list.</p>
 
-<div class="handbook-worksheet-title">Setting up the Guest Speakers/Enrichment Programs</div>
+<div align="center" style="font-weight:bold; text-decoration:underline">Setting up the Guest Speakers/Enrichment
+    Programs
+</div>
 <ul>
     <li>After you find the Guest Speaker/Enrichment Program email the teacher with the information and ask
         if they want to set up the speaker or if they want you to set them up.
@@ -183,16 +195,18 @@
         to the right of the main entrance) and that they need to sign in at the office.
     </li>
 </ul>
-<div class="handbook-worksheet-title">Classroom Enrichment Fund</div>
+<div align="center" style="font-weight:bold; text-decoration:underline">Classroom Enrichment Fund</div>
 <p>
-    The Classroom Enrichment Fund is voluntary donations made by the parents of 3-4 students. The money you
-    collect can only be used for the third and fourth grade and is up to the teachers to choose how to use it for
-    enrichment. It will be managed and distributed by the PTSA Treasurer. Please ask the parents to make
-    donations in the form of a check and write 3-4 enrichment in the memo area of their check. Once you have
+    The Classroom Enrichment Fund is voluntary donations made by the parents of Middle Level students. The
+    money you collect can only be used for Middle Level enrichment and is up to the teachers to choose how to
+    use it. It will be managed and distributed by the PTSA Treasurer. Please ask the parents to make donations in
+    the form of a check and write middle level enrichment in the memo area of their check. Once you have
     collected the checks then please make arrangements to get them to the PTSA Treasurer.
 </p>
 
-<div class="handbook-worksheet-title">How to set up payments for Guest Speakers and Enrichment Programs</div>
+<div align="center" style="font-weight:bold; text-decoration:underline">How to set up payments for Guest Speakers and
+    Enrichment Programs
+</div>
 <p>
     Once you get approval from the PTSA to pay for a speaker/program and have set it up, email the Speaker or
     Outreach Program to request an invoice. The group or individual may send you or the teacher a confirmation
@@ -202,16 +216,17 @@
 
 <p>
     There are occasions when it may be easier for you to pay out of pocket and then turn in the receipt for
+
     reimbursement from the PTSA. Just make sure that you have Ok’d the funds from the PTSA in advance. Once
+
     you have a paid receipt then submit it to the PTSA Treasurer and he/she will send you a check.
 </p>
 
-<div class="handbook-worksheet-title">Sample Introduction Letter</div>
+<div align="center" style="font-weight:bold; text-decoration:underline">Sample Introduction Letter</div>
 <p>Dear Parents/Guardians,</p>
 
 <p>My (our) name is (your name here) and I (we) have volunteered to be the Classroom Enrichment
-    Coordinator(s) for the third and fourth grade classes. My (our) child (Child’s name), is in class along with your
-    child.</p>
+    Coordinator(s) for the middle level grades. My (our) child (Child’s name), is in class along with your child.</p>
 
 <p>As Classroom Enrichment Coordinator(s), I (we) will be working closely with (teacher’s names) to schedule
     guest speakers and enrichment programs related to topics our children are learning in class. I (we) may be
@@ -219,24 +234,25 @@
     willing to come into the school.</p>
 
 <p>As much as possible the PTSA will be providing the funds for the cost of outside programs/guest speakers for
-    each grade level. If you would like to make a <b><u>voluntary</u></b> donation of $10.00 or more for funds that go
+    each grade level. If you would like to make a <b><u>voluntary donation</u></b> of $10.00 or more for funds that go
     directly to
-    providing enrichment opportunities for grades 3- 4 only you can send your contribution in your child’s Friday
-    folder in an envelope marked grade 3-4 Class Enrichment Fund. Any amount will be greatly appreciated and
-    will be managed by the classroom teachers.</p>
+    providing enrichment opportunities for the Middle Level grades only. You can send your contribution in your
+    child’s Friday folder in an envelope marked Class Enrichment Fund. Any amount will be greatly appreciated
+    and will be managed by the PTSA. Please make checks out to the PTSA and write Middle Level Enrichment in
+    the memo area of the check. <b>No cash please</b>. Your donation is tax deductible.</p>
 
 <p>If you have any ideas, suggestions, or would like to help along the way, please feel free to email or give me
     (us) a call.</p>
 
 <p>Sincerely,</p>
 
-<p>You’re Name</p>
+<p>Your Name</p>
 
 <p>Your Phone</p>
 
 <p>Your Email</p>
 
-<div class="handbook-worksheet-title">Record Keeping Log</div>
+<div align="center" style="font-weight:bold; text-decoration:underline">Record Keeping Log</div>
 <p>
     In order to make it easier for the future Enrichment Coordinators we are asking you to keep a record of guest
     speakers and outside enrichment programs that you schedule. Please use the following format:
@@ -255,3 +271,6 @@
 <p>Program: Denver Museum of Science and Nature, emailed school outreach program</p>
 
 <p>Cost: $160. For 29 kids</p>
+
+<p>Had to ask the museum to alter program for grades 1-2., the program was originally for grades 3-4. Teacher
+    would like to plan as an opportunity every other year.</p>

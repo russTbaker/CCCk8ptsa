@@ -62,13 +62,26 @@
                     <li><a href="#">Offsite Volunteering</a></li>
                     <li><a href="#">Help Wanted</a></li>
                     <li><a href="#">Job Descriptions</a></li>
-                    <li><strong>Volunteer Handbooks</strong>
+                    <li><a href="#">Volunteer Handbooks</a>
                         <ul>
                             <li><a href="<c:url value='/master.htm?view=enrichmentcoordinatorhandbook'/>">Enrichment
-                                Coordinator Handbooks</a></li>
+                                Coordinator Handbook</a></li>
                             <li>
                                 <a href="<c:url value='/master.htm?view=thirdandfourthgradevolunteercoordinatorhandbook'/>">Third
-                                    And Fourth Grade Volunteer Coordinator Handbooks</a></li>
+                                    And Fourth Grade Volunteer Coordinator Handbook</a></li>
+                            <li>
+                                <a href="<c:url value='/master.htm?view=thirdandfourthgraderoomparenthandbook'/>">Third
+                                    And Fourth Grades Room Parent Handbook</a>
+                            </li>
+                            <li>
+                                <a href="<c:url value='/master.htm?view=middlelevelenrichmentcoordinatorhandbook'/>">Middle
+                                    level Enrichment coordinator Handbook</a>
+                            </li>
+
+                            <li>
+                                <a href="<c:url value='/master.htm?view=middlelevelclassroomvolunteercoordinatorhandbook'/>">Middle
+                                    Level Classroom Volunteer Coordinator Handbook</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
