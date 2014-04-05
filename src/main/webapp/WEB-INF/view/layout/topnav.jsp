@@ -82,6 +82,10 @@
                                 <a href="<c:url value='/master.htm?view=middlelevelclassroomvolunteercoordinatorhandbook'/>">Middle
                                     Level Classroom Volunteer Coordinator Handbook</a>
                             </li>
+                            <li>
+                                <a href="<c:url value='/master.htm?view=firstandsecondgradeclassroomvolunteercoordinatorhandbook'/>">First
+                                    and Second Grade Classrom Volunteer Coordinator Handbook</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

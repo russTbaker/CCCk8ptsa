@@ -30,10 +30,12 @@ import org.ccck8ptsa.persistence.dao.api.BaseDao;
 import org.ccck8ptsa.persistence.entity.BaseEntity;
 import org.junit.Ignore;
 
+import javax.validation.ConstraintViolation;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.fail;
@@ -73,9 +75,13 @@ public abstract class BaseDaoTest<E extends BaseEntity, D extends BaseDao> {
 
     protected void doDelete(D dao) {
         E msg = doInsert();
-        String msgId = (String) msg.getId();
+        String msgId =  msg.getId();
         dao.delete(msgId);
         assertNull("Message not deleted", dao.find(msgId));
+    }
+
+    protected Set<ConstraintViolation<E>> validate(D dao,E entity){
+        return dao.validate(entity);
     }
 
 

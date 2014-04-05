@@ -45,8 +45,8 @@
     teachers with a variety of duties from clerical to one on one help with the students. Each of the teachers may
     have different needs. Every effort will be made to have the volunteer needs of the teachers prior to you
     starting your position. There may be volunteers who will come into the classroom consistently every week on
-    the same day for the whole year, some twice a month and some twice a year.
-    To manage your volunteers we request that you use the on line sign-up service called Volunteer Spot. This
+    the same day for the whole year, some twice a month and some twice a year.</p>
+    <p>To manage your volunteers we request that you use the on line sign-up service called Volunteer Spot. This
     will make your job extremely easy and allow the PTSA to keep a record of the number of volunteers in each
     classroom. It will also allow the PTSA Community Volunteer Coordinator to easily place Community
     Volunteers that sign up during the school year.</p>
@@ -55,7 +55,7 @@
 
 <p>You will need to register with Volunteer Spot and set up a password.</p>
 <ol>
-    <li> Go to www.volunteerspot.com</li>
+    <li> Go to <a href="www.volunteerspot.com">www.volunteerspot.com</a></li>
 
     <li> Look on the right hand side of the blue toolbar and click on register.</li>
 

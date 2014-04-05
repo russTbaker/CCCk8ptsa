@@ -27,7 +27,6 @@
 package org.ccck8ptsa.persistence.initializer;
 
 import org.ccck8ptsa.persistence.dao.api.EventDao;
-import org.ccck8ptsa.persistence.dao.api.OrganizationDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -44,9 +43,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Component
 public class ApplicationContextListener implements ApplicationListener<ContextRefreshedEvent> {
-
-    @Autowired
-    private OrganizationDao organizationDao;
 
     @Autowired
     private EventDao eventDao;

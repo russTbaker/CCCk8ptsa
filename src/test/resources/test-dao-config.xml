@@ -24,7 +24,7 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
           p:driverClassName="org.hsqldb.jdbcDriver"
-          p:url="jdbc:hsqldb:mem:target:/db/reminderportal_idp;hsqldb.applog=1"
+          p:url="jdbc:hsqldb:mem:target:/db/ccck8ptsa;hsqldb.applog=1"
           p:username="sa"/>
 
     <bean name="eclipseLinkPersistenceProvider"
@@ -72,4 +72,6 @@
     <context:component-scan base-package="org.ccck8ptsa.persistence.dao.impl"/>
 
     <tx:annotation-driven order="0" mode="proxy"/>
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 </beans>

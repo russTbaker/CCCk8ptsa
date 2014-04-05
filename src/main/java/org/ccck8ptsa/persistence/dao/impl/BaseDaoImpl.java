@@ -40,6 +40,10 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -58,6 +62,7 @@ public class BaseDaoImpl<T, PK> implements BaseDao<T, PK> {
     protected EntityManager em;
 
     private Class<T> type;
+
 
 
     public BaseDaoImpl() {
@@ -141,5 +146,11 @@ public class BaseDaoImpl<T, PK> implements BaseDao<T, PK> {
         }
         logger.error("error: Can not find entity {}", entityName);
         throw new RuntimeException("Unknown entity=" + entityName);
+    }
+
+    public Set<ConstraintViolation<BaseEntity>> validate(BaseEntity entity) {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        return validator.validate(entity);
     }
 }

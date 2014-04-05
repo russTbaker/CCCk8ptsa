@@ -27,7 +27,7 @@
 package org.ccck8ptsa.persistence.dao.impl;
 
 import org.ccck8ptsa.persistence.dao.api.EventDao;
-import org.ccck8ptsa.persistence.entity.VolunteerSpotProxy;
+import org.ccck8ptsa.persistence.entity.Event;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -37,5 +37,5 @@ import org.springframework.stereotype.Repository;
  * @since Jan 20, 2014:3:52:44 PM
  */
 @Repository(value = "eventDaoJpa")
-public class EventDaoJpaImpl extends BaseDaoImpl<VolunteerSpotProxy,String> implements EventDao {
+public class EventDaoJpaImpl extends BaseDaoImpl<Event,String> implements EventDao {
 }

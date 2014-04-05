@@ -85,4 +85,11 @@
         <put-attribute name="body" value="/WEB-INF/view/handbooks/middlelevelclassroomvolunteercoordinatorhandbook.jsp"/>
     </definition>
 
+        <definition name="firstandsecondgradeclassroomvolunteercoordinatorhandbook" extends="baseLayoutWithTopNav">
+        <put-attribute name="title" value="Middle Level Enrichment Coordinator Handbook"/>
+        <put-attribute name="body" value="/WEB-INF/view/handbooks/firstandsecondgradeclassroomvolunteercoordinatorhandbook.jsp"/>
+    </definition>
+
+
+
 </tiles-definitions>
