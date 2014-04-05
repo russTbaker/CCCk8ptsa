@@ -24,7 +24,8 @@
 
     <!--<context:component-scan base-package="com.reminderportal.persistence.database.initializer"/>-->
     <context:annotation-config/>
-    <!--<context:component-scan base-package="org.ccck8ptsa.web.controller"/>-->
+    <context:component-scan base-package="org.ccck8ptsa.service.**"/>
+    <context:component-scan base-package="org.ccck8ptsa.persistence.dao.impl.**"/>
 
     <mvc:annotation-driven/>
 </beans>
