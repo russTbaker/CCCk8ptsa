@@ -16,5 +16,5 @@ public interface EventService extends BaseService {
     Event updateEvent(Event event);
     void deleteEvent(String id);
     Event getEvent(String eventId);
-    List<Event> getEventsByDateRange(Timestamp startDate, Timestamp endDate);
+    List<Event> getEventsByDateRange(Timestamp startDate, Timestamp endDate, Integer limit);
 }

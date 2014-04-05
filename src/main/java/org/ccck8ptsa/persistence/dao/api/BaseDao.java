@@ -23,5 +23,5 @@ public interface BaseDao<T,PK> {
 
     void delete(String entityType, List<String> idList);
 
-    Set<ConstraintViolation<BaseEntity>> validate(BaseEntity entity);
+    Set<ConstraintViolation<T>> validate(T entity);
 }

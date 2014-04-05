@@ -26,14 +26,19 @@
  */
 package org.ccck8ptsa.persistence.initializer;
 
-import org.ccck8ptsa.persistence.dao.api.EventDao;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.ccck8ptsa.persistence.entity.Event;
+import org.joda.time.LocalDate;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * ApplicationContextListener.java
@@ -44,13 +49,36 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class ApplicationContextListener implements ApplicationListener<ContextRefreshedEvent> {
 
-    @Autowired
-    private EventDao eventDao;
+    @PersistenceContext
+    EntityManager em;
 
-    
 
     @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRES_NEW)
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent event) {
+    public void onApplicationEvent(ContextRefreshedEvent ctxEvent) {
+        if(ctxEvent.getApplicationContext().getParent() == null && "test".equals(System.getProperty("env"))){
+            Timestamp timestamp;
+            Date theDate= new LocalDate().toDate();
+            for (int i = 0; i < 31; i++) {
+                if (i % 2 == 0) {
+                    theDate =  new LocalDate().plusDays(i).toDate();
+                }
+                timestamp = new Timestamp(theDate.getTime());
+                createEvent(timestamp);
+            }
+        }
+    }
+
+    private Event createEvent(Timestamp timestamp) {
+        Event event = new Event();
+        Timestamp ts = timestamp;
+        long currentTime = System.currentTimeMillis();
+        event.setDescription("Description for: " + currentTime);
+        event.setEventDate(ts);
+        event.setTitle("Title for: " + currentTime);
+        event.setLink("http://www.volunteerspot.com");
+        em.persist(event);
+        em.flush();
+        return event;
     }
 }

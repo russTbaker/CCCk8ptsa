@@ -148,7 +148,7 @@ public class BaseDaoImpl<T, PK> implements BaseDao<T, PK> {
         throw new RuntimeException("Unknown entity=" + entityName);
     }
 
-    public Set<ConstraintViolation<BaseEntity>> validate(BaseEntity entity) {
+    public Set<ConstraintViolation<T>> validate(T entity) {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         return validator.validate(entity);

@@ -28,19 +28,29 @@ h6 {color:#333333; text-transform:lowercase; font-size:13px; padding:0px; font-w
     font-size:18px;
 }
 
-.index-card{
-    background:#dcdcdc;
-    border-radius:25px;border: 0px solid #a1a1a1;
-    -webkit-border-bottom-left-radius: 0px;
-    -webkit-border-bottom-right-radius: 0px;
-    -moz-border-radius-topleft: 0px;
-    -moz-border-radius-bottomleft: 0px;
-    -moz-border-radius-bottomright: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-top-left-radius: 0px;
-    box-shadow: 10px 10px 5px #888888;
+.tops-rounded {
+    background: #6699ff;
+    border-radius:25px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    border-radius: 32px 32px 0px 0px;
+
 }
+
+#thisWeeksEvents{
+    padding:25px;
+    background-color: #ccccff;
+    width:100%;
+    margin:10px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    border-radius: 0px 32px 0px 0px;
+}
+
+#thisWeeksEvents td{
+   background-color:#ccccff; 
+}
+
 
 .table-th{
     border: 1px solid black;

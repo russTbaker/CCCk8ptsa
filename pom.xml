@@ -80,7 +80,7 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>3.2.1.ga</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -119,12 +119,6 @@
         <!--   Spring Security Dependencies                  -->
         <!-- =============================================== -->
 
- <!--
-        <dependency>
-            <groupId>org.jasig.cas.client</groupId>
-            <artifactId>cas-client-core</artifactId>
-            <version>3.2.1</version>
-        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -132,10 +126,10 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
-        -->
+
 
         <!-- Spring -->
-    <!--    <dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
@@ -181,17 +175,19 @@
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jms</artifactId>
-            <version>${spring.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-jms</artifactId>-->
+            <!--<version>${spring.version}</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>commons-logging</groupId>-->
+                    <!--<artifactId>commons-logging</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+        
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
@@ -217,8 +213,7 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!-- Spring Security -->
-    <!--    <dependency>
+        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
             <version>${spring.security.version}</version>
@@ -245,7 +240,7 @@
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>1.4.3</version>
-        </dependency>  -->
+        </dependency>
 
         <!-- Quartz framework -->
         <dependency>
@@ -254,38 +249,7 @@
             <version>1.8.6</version>
         </dependency>
 
-        <!-- =============================================== -->
-        <!--   JSR-311 Dependencies                          -->
-        <!-- =============================================== -->
 
-    <!--    <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-            <version>${cxf.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.xml.bind</groupId>
-                    <artifactId>jaxb-xjc</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http</artifactId>
-            <version>${cxf.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-web</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>   -->
         <!-- =============================================== -->
         <!--   JSTL Dependencies                              -->
         <!-- =============================================== -->
@@ -350,7 +314,28 @@
             <artifactId>hsqldb</artifactId>
             <version>1.8.0.7</version>
             <scope>test</scope>
-        </dependency>        
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
     <properties>
@@ -362,7 +347,8 @@
         <spring-data-jpa.version>1.0.3.RELEASE</spring-data-jpa.version>
         <commons-pool.version>1.6</commons-pool.version>
         <junit.version>4.8.1</junit.version>
-        <mockito.version>1.9.0</mockito.version>
+        <mockito.version>1.9.5</mockito.version>
+        <powermock.version>1.5.4</powermock.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
         <cxf.version>2.5.2</cxf.version>
         <tomcat.version>7.0.27</tomcat.version>

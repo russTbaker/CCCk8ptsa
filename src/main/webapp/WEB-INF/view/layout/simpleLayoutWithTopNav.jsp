@@ -13,6 +13,7 @@
     <style>
         #mainlayout tr {
             background-color: #336600;
+            padding: 15px;
         }
 
         #innertable tr {
@@ -21,7 +22,7 @@
 
         div.even {
             /*background: #cccccc;*/
-            padding: 15px;
+
         }
 
         div.uneven {
@@ -53,7 +54,7 @@
                         <td align="center" class="table-th"><tiles:insertAttribute name="topnav"/></td>
                     </tr>
                     <tr>
-                         <td class="table-th"><div class="even"><tiles:insertAttribute name="body"/></div></td>
+                         <td><tiles:insertAttribute name="body"/></td>
                     <tr>
                         <td class="table-th"><tiles:insertAttribute name="footer"/></td>
                     </tr>

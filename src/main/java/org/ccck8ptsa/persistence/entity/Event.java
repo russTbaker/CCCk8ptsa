@@ -28,9 +28,7 @@ package org.ccck8ptsa.persistence.entity;
 
 import org.hibernate.validator.constraints.URL;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -43,21 +41,25 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "EVENT")
+@NamedQueries({
+        @NamedQuery(name = "Event.findByDateRange", query = "select e from Event e where e.eventDate between ?1 and ?2" +
+                " order by e.eventDate asc")
+        })
 public class Event extends BaseEntity implements Serializable {
 
-    @Column(name = "EVENT_DATE")
+    @Column(name = "EVENT_DATE", nullable = false)
     @NotNull
     private Timestamp eventDate;
 
-    @Column(name = "TITLE")
+    @Column(name = "TITLE", nullable = false)
     @NotNull
     private String title;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = false)
     @NotNull
     private String description;
 
-    @Column(name = "LINK")
+    @Column(name = "LINK", nullable = false)
     @URL
     @NotNull
     private String link;

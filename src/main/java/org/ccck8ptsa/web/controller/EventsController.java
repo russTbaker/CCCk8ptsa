@@ -26,12 +26,19 @@
  */
 package org.ccck8ptsa.web.controller;
 
+import org.ccck8ptsa.persistence.entity.Event;
+import org.ccck8ptsa.service.api.EventService;
+import org.joda.time.LocalDate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
 
 /**
  * EventsController.java
@@ -40,11 +47,41 @@ import javax.servlet.http.HttpServletRequest;
  * @since Jan 20, 2014:11:09:53 AM
  */
 @Controller(value = "eventsController")
-@RequestMapping("events.htm")
+@RequestMapping("/events")
 public class EventsController {
 
-        @RequestMapping(method = RequestMethod.GET)
-    public String welcome(ModelMap model, HttpServletRequest request) {
-        return "events";
+    @Autowired
+    private EventService eventService;
+
+    @RequestMapping(value="/monthlyevents",method = RequestMethod.GET)
+    public String getThisMonthsEvents(ModelMap model, HttpServletRequest request) {
+        List<Event> thisMonthsEvents = getThisMonthsEvents();
+        List<Event> upcomingEvents = getThisWeeksEvents();
+        model.addAttribute("thisMonthsEvents",thisMonthsEvents);
+        model.addAttribute("upcomingEvents",upcomingEvents);
+        return "welcome";
     }
+
+    private List<Event> getThisWeeksEvents() {
+        int oneWeek = 7;
+        Date sevenDaysOut = new LocalDate().plusDays(oneWeek).toDate();
+        Timestamp sevenDaysOutTimestamp = new Timestamp(sevenDaysOut.getTime());
+
+        Timestamp nowTimestamp = new Timestamp(new Date().getTime());
+        List<Event> upcomingEvents = eventService.getEventsByDateRange(nowTimestamp,sevenDaysOutTimestamp, oneWeek);
+        return upcomingEvents;
+    }
+
+    private List<Event> getThisMonthsEvents() {
+        Date endOfMonth = new LocalDate().dayOfMonth().withMaximumValue().toDate();
+        Date startOfMonth = new LocalDate().withDayOfMonth(1).toDate();
+        Timestamp startMonthTimestamp = new Timestamp(startOfMonth.getTime());
+        Timestamp endMonthTimestamp = new Timestamp(endOfMonth.getTime());
+
+        // Get the full months TODO: figure out how to find how many days left in month
+        List<Event> thisMonthsEvents = eventService.getEventsByDateRange(startMonthTimestamp,
+                endMonthTimestamp, 31);
+        return thisMonthsEvents;
+    }
+
 }

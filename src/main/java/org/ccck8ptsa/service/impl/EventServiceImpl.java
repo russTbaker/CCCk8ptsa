@@ -29,10 +29,12 @@ package org.ccck8ptsa.service.impl;
 import org.ccck8ptsa.persistence.dao.api.EventDao;
 import org.ccck8ptsa.persistence.entity.Event;
 import org.ccck8ptsa.service.api.EventService;
+import org.ccck8ptsa.service.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -43,7 +45,7 @@ import java.util.List;
  * @since Apr 4, 2014:6:11:59 PM
  */
 @Service(value = "eventService")
-public class EventServiceImpl implements EventService {
+public class EventServiceImpl extends BaseServiceImpl implements EventService {
 
     @Autowired
     @Qualifier(value = "eventDaoJpa")
@@ -52,26 +54,37 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public Event addEvent(Event event) {
+        validate(event, eventDao);
         return eventDao.create(event);
     }
 
     @Override
     public Event updateEvent(Event event) {
+        validate(event, eventDao);
         return eventDao.update(event);
     }
 
     @Override
     public void deleteEvent(String id) {
-        eventDao.delete(id);
+        try {
+            eventDao.delete(id);
+        } catch (EntityNotFoundException e) {
+            throw new ServiceException(e);
+        }
     }
 
     @Override
     public Event getEvent(String eventId) {
-        return eventDao.find(eventId);
+        try {
+            return eventDao.find(eventId);
+        } catch (EntityNotFoundException e) {
+            throw new ServiceException(e);
+        }
     }
 
     @Override
-    public List<Event> getEventsByDateRange(Timestamp startDate, Timestamp endDate) {
-        return null;
+    public List<Event> getEventsByDateRange(Timestamp startDate, Timestamp endDate, Integer limit) {
+        return eventDao.findByDateRange(startDate,endDate);
     }
+
 }
