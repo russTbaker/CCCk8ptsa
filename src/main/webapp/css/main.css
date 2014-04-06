@@ -16,10 +16,7 @@ h3.accordion2 {background-color:#877C6F;}
 h4 {color:#333333; text-transform:uppercase; font-size:18px; padding:0px; font-weight:normal; margin:0 0 10px;}
 h5 {color:#333333; text-transform:uppercase; font-size:12px; padding:0px; font-weight:bold; margin:16px 0 2px;}
 h6 {color:#333333; text-transform:lowercase; font-size:13px; padding:0px; font-weight:bold; margin:14px 0 8px;}
-.tableReport {border-collapse: collapse;}
-.tableReport-tr0 {vertical-align:middle;background-color:#ffd700;text-align:center;}
-.tableReport-tr1 {vertical-align:middle;background-color:#6495ed;text-align:center;}
-.tableReport-th {vertical-align:middle;background-color:#e9967a;text-align:center;}
+
 
 .handbook-worksheet-title{
     text-align:center;
@@ -37,18 +34,48 @@ h6 {color:#333333; text-transform:lowercase; font-size:13px; padding:0px; font-w
 
 }
 
-#thisWeeksEvents{
+.bottoms-rounded {
+    background: #6699ff;
+    border-radius:25px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    border-radius: 0px 0px 32px 32px;    
+}
+
+.thisWeeksEvents{
     padding:25px;
-    background-color: #ccccff;
+    background-color: #ffffff;
     width:100%;
     margin:10px;
     -webkit-border-radius: 0px 0px 0px 0px;
     -moz-border-radius: 0px 0px 0px 0px;
-    border-radius: 0px 32px 0px 0px;
+    border-radius: 0px 30px 0px 0px;
 }
 
+
+
 #thisWeeksEvents td{
-   background-color:#ccccff; 
+   background-color: #ffffff; !important
+}
+
+.thisWeeksEvents tr{
+   background-color: #ffffff;
+}
+
+#upcomingEvents{
+    background-color: #ffffff;
+}
+
+#upcomingEvents ts{
+    background-color: #ffffff;
+}
+
+#homepageContainer{
+   background-color: #ccccff;
+}
+
+#homepageContainer td{
+   background-color: #ccccff;
 }
 
 
