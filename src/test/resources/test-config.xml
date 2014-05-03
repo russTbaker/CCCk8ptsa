@@ -21,5 +21,6 @@
             location="classpath:/test.properties"
             system-properties-mode="OVERRIDE"/>
     <import resource="test-dao-config.xml"/>
+    <context:component-scan base-package="org.ccck8ptsa.service.**"/>
 
 </beans>

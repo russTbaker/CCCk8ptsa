@@ -63,8 +63,6 @@ public class BaseDaoImpl<T, PK> implements BaseDao<T, PK> {
 
     private Class<T> type;
 
-
-
     public BaseDaoImpl() {
         super();
         Type t = getClass().getGenericSuperclass();
@@ -75,12 +73,16 @@ public class BaseDaoImpl<T, PK> implements BaseDao<T, PK> {
     @SuppressWarnings("unchecked")
     @Override
     public T find(final PK pk) {
-        return this.em.find(type, pk);
+        T entity = this.em.find(type, pk);
+        if(entity == null){
+            throw new NotFoundException("Cannot find entity with id: "+pk.toString());
+        }
+        return entity;
     }
 
     public T update(final T entity) {
-        this.em.merge(entity);
-        return entity;
+        T updatedEntity = this.em.merge(entity);
+        return updatedEntity;
     }
 
     public void delete(final Object id) {
@@ -152,5 +154,11 @@ public class BaseDaoImpl<T, PK> implements BaseDao<T, PK> {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         return validator.validate(entity);
+    }
+
+    public static class NotFoundException extends RuntimeException {
+        public NotFoundException(String message) {
+            super(message);
+        }
     }
 }

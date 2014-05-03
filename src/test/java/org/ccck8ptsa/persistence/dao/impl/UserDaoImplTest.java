@@ -120,6 +120,12 @@ public class UserDaoImplTest extends BaseDaoTest{
         doDelete(userDao);
     }
 
+    //-- Finds
+    @Test(expected = BaseDaoImpl.NotFoundException.class)
+    public void whenUserNoExist_ExpectNotFoundException(){
+        userDao.find("a bogus string");
+    }
+
 
     //==== Private methods
 

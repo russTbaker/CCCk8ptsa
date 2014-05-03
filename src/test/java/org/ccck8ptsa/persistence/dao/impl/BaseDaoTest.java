@@ -26,6 +26,7 @@
  */
 package org.ccck8ptsa.persistence.dao.impl;
 
+import junit.framework.Assert;
 import org.ccck8ptsa.persistence.dao.api.BaseDao;
 import org.ccck8ptsa.persistence.entity.BaseEntity;
 import org.junit.Ignore;
@@ -38,6 +39,7 @@ import java.util.List;
 import java.util.Set;
 
 import static junit.framework.Assert.assertNull;
+import static junit.framework.Assert.assertTrue;
 import static junit.framework.Assert.fail;
 
 /**
@@ -77,7 +79,10 @@ public abstract class BaseDaoTest<E extends BaseEntity, D extends BaseDao> {
         E msg = doInsert();
         String msgId =  msg.getId();
         dao.delete(msgId);
-        assertNull("Message not deleted", dao.find(msgId));
+        try{
+             dao.find(msgId);
+            fail("Entity not deleted");
+        } catch(BaseDaoImpl.NotFoundException e){}
     }
 
     protected Set<ConstraintViolation<E>> validate(D dao,E entity){
