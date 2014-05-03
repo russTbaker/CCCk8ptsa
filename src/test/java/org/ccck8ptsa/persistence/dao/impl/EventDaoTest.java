@@ -24,7 +24,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.ccck8ptsa.persistence.dao;
+package org.ccck8ptsa.persistence.dao.impl;
 
 import org.ccck8ptsa.persistence.dao.api.EventDao;
 import org.ccck8ptsa.persistence.entity.Event;
