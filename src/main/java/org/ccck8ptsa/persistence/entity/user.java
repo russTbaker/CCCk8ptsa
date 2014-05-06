@@ -26,10 +26,7 @@
  */
 package org.ccck8ptsa.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -51,6 +48,7 @@ public class User extends BaseEntity implements Serializable {
     }
 
     @Column(name = "ROLES")
+    @ElementCollection
     private Set<Role> roles = new HashSet<Role>();
 
     @Column(name = "FIRST_NAME")

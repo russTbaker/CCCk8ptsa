@@ -26,40 +26,35 @@
  */
 package org.ccck8ptsa.persistence.dao.impl;
 
-import org.ccck8ptsa.persistence.dao.api.UserDao;
-import org.ccck8ptsa.persistence.entity.User;
-import org.springframework.stereotype.Repository;
+import org.ccck8ptsa.persistence.dao.api.NewsEventDao;
+import org.ccck8ptsa.persistence.entity.NewsEvent;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
- * UserDaoImpl.java
+ * NewsEventDaoTest.java
  *
  * @author: Russ
- * @since May 3, 2014:8:28:49 AM
+ * @since May 5, 2014:9:25:55 PM
  */
-@Repository(value = "userDaoJpa")
-public class UserDaoImpl extends BaseDaoImpl<User, String> implements UserDao {
-    @Override
-    public User createSchoolUser(User user) {
-        user.getRoles().add(User.Role.SCHOOL_EMPLOYEE);
-        return create(user);
-    }
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:/test-config.xml"})
+@TransactionConfiguration(transactionManager = "jpaTestTransactionManager", defaultRollback = true)
+@Transactional
+public class NewsEventDaoTest extends BaseDaoTest<NewsEvent, NewsEventDao>{
+
+    @Autowired
+    private NewsEventDao newsEventDao;
 
     @Override
-    public User createPTSAVolunteer(User user) {
-        user.getRoles().add(User.Role.PTSA_VOLUNTEER);
-        return create(user);
-    }
-
-    @Override
-    public User createPTSAAdministrator(User user) {
-        user.getRoles().add(User.Role.PTSA_ADMINISTRATOR);
-        user.getRoles().add(User.Role.PTSA_VOLUNTEER);
-        return create(user);
-    }
-
-    @Override
-    public User promotePTSAVolunteerToAdmin(User user) {
-        user.getRoles().add(User.Role.PTSA_ADMINISTRATOR);
-        return update(user);
+    protected NewsEvent doInsert() {
+        NewsEvent newsEvent = new NewsEvent();
+        newsEvent.setBody("BODY");
+        newsEvent.setTitle("TITLE");
+        return null;
     }
 }

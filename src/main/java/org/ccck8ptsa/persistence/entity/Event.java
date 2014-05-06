@@ -32,6 +32,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Event.java
@@ -44,7 +46,7 @@ import java.sql.Timestamp;
 @NamedQueries({
         @NamedQuery(name = "Event.findByDateRange", query = "select e from Event e where e.eventDate between ?1 and ?2" +
                 " order by e.eventDate asc")
-        })
+})
 public class Event extends BaseEntity implements Serializable {
 
     @Column(name = "EVENT_DATE", nullable = false)
@@ -63,6 +65,12 @@ public class Event extends BaseEntity implements Serializable {
     @URL
     @NotNull
     private String link;
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    private List<NewsEvent> newsEvents = new ArrayList<NewsEvent>();
+
+    @ManyToMany(mappedBy = "events")
+    private List<Sponsor> sponsors = new ArrayList<Sponsor>();
 
     public Timestamp getEventDate() {
         return eventDate;
@@ -96,6 +104,22 @@ public class Event extends BaseEntity implements Serializable {
         this.link = link;
     }
 
+    public List<NewsEvent> getNewsEvents() {
+        return newsEvents;
+    }
+
+    public void setNewsEvents(List<NewsEvent> newsEvents) {
+        this.newsEvents = newsEvents;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
+
+    public void setSponsors(List<Sponsor> sponsors) {
+        this.sponsors = sponsors;
+    }
+
     @Override
     public String getClassName() {
         return this.getClass().getSimpleName();
@@ -111,6 +135,8 @@ public class Event extends BaseEntity implements Serializable {
         if (description != null ? !description.equals(event.description) : event.description != null) return false;
         if (eventDate != null ? !eventDate.equals(event.eventDate) : event.eventDate != null) return false;
         if (link != null ? !link.equals(event.link) : event.link != null) return false;
+        if (newsEvents != null ? !newsEvents.equals(event.newsEvents) : event.newsEvents != null) return false;
+        if (sponsors != null ? !sponsors.equals(event.sponsors) : event.sponsors != null) return false;
         if (title != null ? !title.equals(event.title) : event.title != null) return false;
 
         return true;
@@ -122,6 +148,8 @@ public class Event extends BaseEntity implements Serializable {
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (link != null ? link.hashCode() : 0);
+        result = 31 * result + (newsEvents != null ? newsEvents.hashCode() : 0);
+        result = 31 * result + (sponsors != null ? sponsors.hashCode() : 0);
         return result;
     }
 }

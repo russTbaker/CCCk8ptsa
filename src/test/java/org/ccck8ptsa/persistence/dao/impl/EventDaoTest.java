@@ -27,7 +27,9 @@
 package org.ccck8ptsa.persistence.dao.impl;
 
 import org.ccck8ptsa.persistence.dao.api.EventDao;
+import org.ccck8ptsa.persistence.dao.api.NewsEventDao;
 import org.ccck8ptsa.persistence.entity.Event;
+import org.ccck8ptsa.persistence.entity.NewsEvent;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,9 +49,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.*;
 
 /**
  * EventDaoTest.java
@@ -66,6 +66,11 @@ public class EventDaoTest extends BaseDaoTest<Event, EventDao> {
     @Autowired
     @Qualifier(value = "eventDaoJpa")
     private EventDao eventDao;
+
+    @Autowired
+    @Qualifier(value = "newsEventJpaDao")
+    private NewsEventDao newsEventDao;
+
     private String EVENT_DESCRIPTION = "TEST";
     private String EVENT_TITLE = "TEST_TITLE";
     private String EVENT_LINK = "http://www.yahoo.com";
@@ -125,24 +130,40 @@ public class EventDaoTest extends BaseDaoTest<Event, EventDao> {
     @Test
     public void getByDate() {
         Event test = doInsert();
-        int oneMonth = 31;
         List<Event> events = eventDao.findByDateRange(new Timestamp(YESTERDAY.getTime().getTime()), EVENT_DATE);
         assertTrue("No events returned", !CollectionUtils.isEmpty(events));
         assertTrue("Wrong event returned", events.contains(test));
     }
 
-    @Test
-    public void getByDate_expectEmptyList() {
-        int oneWeek = 7;
-        List<Event> events = eventDao.findByDateRange(new Timestamp(YESTERDAY.getTime().getTime()), EVENT_DATE);
-        assertNotNull(events);
-        assertTrue(CollectionUtils.isEmpty(events));
-    }
 
     @Test(expected = PersistenceException.class)
-    public void nonNullableFields_expectSqlError(){
-        Event event = new  Event();
+    public void nonNullableFields_expectSqlError() {
+        Event event = new Event();
         eventDao.create(event);
+    }
+
+    @Test
+    public void createEventAndNews_expectBoth() {
+        assertEventAndNewsCreated();
+    }
+
+
+
+
+    @Test
+    public void updateEventAndNews_expectBothUpdated() {
+        Event initialEvent = assertEventAndNewsCreated();
+        NewsEvent initialNewsEvent = initialEvent.getNewsEvents().get(0);
+        Timestamp updatedTimestamp = new Timestamp(new Date().getTime());
+        initialNewsEvent.setModifyDate(updatedTimestamp);
+        String updatedDescription = "new description";
+        initialEvent.setDescription(updatedDescription);
+        eventDao.update(initialEvent);
+
+        Event updatedResult = eventDao.find(initialEvent.getId());
+        assertNotNull("Event not found",updatedResult);
+        assertEquals("Event not updated",updatedDescription,updatedResult.getDescription());
+        assertEquals("NewsEvent not updated",initialNewsEvent,updatedResult.getNewsEvents().get(0));
     }
 
     @Override
@@ -150,9 +171,23 @@ public class EventDaoTest extends BaseDaoTest<Event, EventDao> {
         Calendar tomorrow = Calendar.getInstance();
         tomorrow.add(Calendar.DATE, 1);
         Event event = createEvent();
+
         Event result = eventDao.create(event);
-        assertNotNull("VolunteerSpotProxy not created", event);
+        assertNotNull("Event not created", event);
         return result;
+    }
+
+    private Event assertEventAndNewsCreated() {
+        Event inserted = doInsert();
+        createNewsEvent(inserted);
+        Event result = eventDao.find(inserted.getId());
+        assertNewsCreated(result);
+        return result;
+    }
+
+    private void createNewsEvent(Event event) {
+        NewsEvent newsEvent = new NewsEvent();
+        event.getNewsEvents().add(newsEvent);
     }
 
     private Event createEvent() {
@@ -161,7 +196,15 @@ public class EventDaoTest extends BaseDaoTest<Event, EventDao> {
         event.setDescription(EVENT_DESCRIPTION);
         event.setTitle(EVENT_TITLE);
         event.setLink(EVENT_LINK);
+        createNewsEvent(event);
         return event;
+    }
+
+    private void assertNewsCreated(Event result) {
+        NewsEvent newsEvent = newsEventDao.find(result.getNewsEvents().get(0).getId());
+        assertNotNull("Event not inserted with news", result);
+        assertTrue("News event not saved", !CollectionUtils.isEmpty(result.getNewsEvents()));
+        assertNotNull("News Date not saved", result.getNewsEvents().get(0).getCreateDate());
     }
 
 
