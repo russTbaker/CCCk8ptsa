@@ -26,8 +26,14 @@
  */
 package org.ccck8ptsa.web.controller;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.ccck8ptsa.persistence.entity.Event;
+import org.ccck8ptsa.persistence.entity.NewsEvent;
+import org.ccck8ptsa.persistence.entity.Sponsor;
 import org.ccck8ptsa.service.api.EventService;
+import org.ccck8ptsa.web.forms.EventForm;
+import org.ccck8ptsa.web.forms.NewsEventForm;
+import org.ccck8ptsa.web.forms.SponsorForm;
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +42,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -53,13 +61,20 @@ public class EventsController {
     @Autowired
     private EventService eventService;
 
-    @RequestMapping(value="/monthlyevents",method = RequestMethod.GET)
+    @RequestMapping(value = "/monthlyevents", method = RequestMethod.GET)
     public String getThisMonthsEvents(ModelMap model, HttpServletRequest request) {
         List<Event> thisMonthsEvents = getThisMonthsEvents();
         List<Event> upcomingEvents = getThisWeeksEvents();
-        model.addAttribute("thisMonthsEvents",thisMonthsEvents);
-        model.addAttribute("upcomingEvents",upcomingEvents);
+        model.addAttribute("thisMonthsEvents", thisMonthsEvents);
+        model.addAttribute("upcomingEvents", upcomingEvents);
         return "welcome";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String createEvent(ModelMap model, @Valid EventForm eventForm) {
+        createEvent(eventForm);
+        model.addAttribute("eventForm", eventForm);
+        return "eventAdded";
     }
 
     private List<Event> getThisWeeksEvents() {
@@ -68,7 +83,7 @@ public class EventsController {
         Timestamp sevenDaysOutTimestamp = new Timestamp(sevenDaysOut.getTime());
 
         Timestamp nowTimestamp = new Timestamp(new Date().getTime());
-        List<Event> upcomingEvents = eventService.getEventsByDateRange(nowTimestamp,sevenDaysOutTimestamp, oneWeek);
+        List<Event> upcomingEvents = eventService.getEventsByDateRange(nowTimestamp, sevenDaysOutTimestamp, oneWeek);
         return upcomingEvents;
     }
 
@@ -84,4 +99,72 @@ public class EventsController {
         return thisMonthsEvents;
     }
 
+
+    protected Event createEvent(final EventForm eventForm) {
+        return eventService.addEvent(populateEventFromEventForm(eventForm));
+    }
+
+    protected Event updateEvent(final EventForm eventForm) {
+        return eventService.updateEvent(populateEventFromEventForm(eventForm));
+    }
+
+    protected void deleteEvent(final EventForm eventForm){
+        eventService.deleteEvent(eventForm.getId());
+    }
+
+    private Event populateEventFromEventForm(final EventForm eventForm) {
+        Event event = new Event();
+        List<NewsEventForm> newsEventForm = eventForm.getNewsEventForms();
+        List<SponsorForm> sponsorForm = eventForm.getSponsorForms();
+        try {
+            BeanUtils.copyProperties(event, eventForm);
+            if (newsEventForm != null) {
+                addNewsEvent(event, newsEventForm);
+            }
+            if (sponsorForm != null) {
+                addSponsor(event, sponsorForm);
+            }
+        } catch (Exception e) {
+            throw new EventNotCreatedException(e);
+        }
+        return event;
+    }
+
+    private void addSponsor(Event event, List<SponsorForm> sponsorForms) throws IllegalAccessException, InvocationTargetException {
+        for (SponsorForm sponsorForm : sponsorForms) {
+            Sponsor sponsor = new Sponsor();
+            BeanUtils.copyProperties(sponsor, sponsorForm);
+            event.getSponsors().add(sponsor);
+        }
+    }
+
+    private void addNewsEvent(Event event, List<NewsEventForm> newsEventForms) throws IllegalAccessException, InvocationTargetException {
+        for (NewsEventForm newsEventForm:newsEventForms) {
+            NewsEvent newsEvent = new NewsEvent();
+            BeanUtils.copyProperties(newsEvent, newsEventForm);
+            event.getNewsEvents().add(newsEvent);
+        }
+    }
+
+
+    public static class EventNotCreatedException extends RuntimeException {
+        public EventNotCreatedException(String message) {
+            super(message);
+        }
+
+        public EventNotCreatedException(String message, Throwable cause) {
+            super(message, cause);
+        }
+
+        public EventNotCreatedException(Throwable cause) {
+            super(cause);
+        }
+
+        public EventNotCreatedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+            super(message, cause, enableSuppression, writableStackTrace);
+        }
+
+        public EventNotCreatedException() {
+        }
+    }
 }

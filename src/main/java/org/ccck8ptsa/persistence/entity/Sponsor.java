@@ -47,9 +47,8 @@ public class Sponsor extends BaseEntity {
     @Column(name = "SPONSOR_NAME")
     private String name;
 
-    @Lob
     @Column(name = "LOGO")
-    private byte[] image;
+    private String imageLocation;
 
     @Column(name = "SPONSOR_WEBSITE")
     @URL
@@ -78,12 +77,12 @@ public class Sponsor extends BaseEntity {
         this.name = name;
     }
 
-    public byte[] getImage() {
-        return image;
+    public String getImageLocation() {
+        return imageLocation;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setImageLocation(String image) {
+        this.imageLocation = image;
     }
 
     public String getWebsiteUrl() {
@@ -121,13 +120,14 @@ public class Sponsor extends BaseEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Sponsor)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Sponsor sponsor = (Sponsor) o;
 
         if (email != null ? !email.equals(sponsor.email) : sponsor.email != null) return false;
         if (events != null ? !events.equals(sponsor.events) : sponsor.events != null) return false;
-        if (!Arrays.equals(image, sponsor.image)) return false;
+        if (imageLocation != null ? !imageLocation.equals(sponsor.imageLocation) : sponsor.imageLocation != null)
+            return false;
         if (name != null ? !name.equals(sponsor.name) : sponsor.name != null) return false;
         if (sponsorPhone != null ? !sponsorPhone.equals(sponsor.sponsorPhone) : sponsor.sponsorPhone != null)
             return false;
@@ -139,7 +139,7 @@ public class Sponsor extends BaseEntity {
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (image != null ? Arrays.hashCode(image) : 0);
+        result = 31 * result + (imageLocation != null ? imageLocation.hashCode() : 0);
         result = 31 * result + (websiteUrl != null ? websiteUrl.hashCode() : 0);
         result = 31 * result + (sponsorPhone != null ? sponsorPhone.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);

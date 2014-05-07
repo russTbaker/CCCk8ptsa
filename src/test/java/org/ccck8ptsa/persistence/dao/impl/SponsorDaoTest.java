@@ -27,6 +27,7 @@
 package org.ccck8ptsa.persistence.dao.impl;
 
 import org.ccck8ptsa.persistence.dao.api.SponsorDao;
+import org.ccck8ptsa.persistence.entity.Event;
 import org.ccck8ptsa.persistence.entity.Sponsor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,6 +41,8 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -55,50 +58,63 @@ import static org.junit.Assert.*;
 @Transactional
 public class SponsorDaoTest extends BaseDaoTest<Sponsor, SponsorDao> {
 
+    public static final String IMAGE_LOCATION = "/images/logo.jpg";
+    public static final String UPDATED_EMAIL = "UPDATED EMAIL";
     @Autowired
     @Qualifier(value = "sponsorDaoJpaImpl")
     private SponsorDao sponsorDao;
     private static final String SPONSOR_EMAIL = "sponsor@sponsor.com";
 
-    private static int _imageSize;
     private static final String SPONSOR_NAME = "SPONSOR_NAME";
     private static final String SPONSOR_URL = "http://someurl.com";
     private static final String SPONSOR_PHONE = "(303)555-1212";
 
     @Test
     public void whenInserted_ExpectFetch() {
-        Sponsor sponsor = doInsert();
-        Sponsor fetched = sponsorDao.find(sponsor.getId());
-        assertNotNull("Sponsor not inserted",fetched);
-        assertEquals("Wrong size image",_imageSize,fetched.getImage().length);
+        createFindSponsor();
+    }
+
+
+
+    @Test
+    public void whenUpdated_ExpectUpdated(){
+        Sponsor insertedSponsor = createFindSponsor();
+        insertedSponsor.setEmail(UPDATED_EMAIL);
+        sponsorDao.update(insertedSponsor);
+        Sponsor result = sponsorDao.find(insertedSponsor.getId());
+        assertNotNull("Sponsor not found",result);
+        assertEquals("Sponsors not equal",insertedSponsor,result);
+    }
+
+    @Test
+    public void delete(){
+        super.doDelete(sponsorDao);
     }
 
 
     @Override
-    public Sponsor doInsert() {
+    protected Sponsor doInsert() {
         Sponsor sponsor = new Sponsor();
         sponsor.setEmail(SPONSOR_EMAIL);
         try {
-            sponsor.setImage(createImage());
+            sponsor.setImageLocation(IMAGE_LOCATION);
         } catch (Exception e) {
             fail(e.getLocalizedMessage());
         }
         sponsor.setName(SPONSOR_NAME);
         sponsor.setWebsiteUrl(SPONSOR_URL);
         sponsor.setSponsorPhone(SPONSOR_PHONE);
-        return sponsorDao.create(sponsor);
+        Sponsor returnedValue = sponsorDao.create(sponsor);
+        assertNotNull("Sponsor not created",sponsor);
+        return returnedValue;
     }
 
-    private byte[] createImage() throws Exception {
-        Resource fileResource = new ClassPathResource("/logo.JPG");
-        InputStream is = fileResource.getInputStream();
-        _imageSize = (int) fileResource.contentLength();
-        byte[] bytes = new byte[_imageSize];
-        try {
-            is.read(bytes);
-        } finally {
-            is.close();
-        }
-        return bytes;
+    private Sponsor createFindSponsor() {
+        Sponsor sponsor = doInsert();
+        Sponsor fetched = sponsorDao.find(sponsor.getId());
+        assertNotNull("Sponsor not inserted",fetched);
+        assertEquals("Image locaton wrong",IMAGE_LOCATION,fetched.getImageLocation());
+        return fetched;
     }
+
 }

@@ -32,7 +32,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * user.java
+ * User.java
  *
  * @author: Russ
  * @since May 3, 2014:8:14:23 AM

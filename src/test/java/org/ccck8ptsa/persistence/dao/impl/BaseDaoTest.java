@@ -83,6 +83,8 @@ public abstract class BaseDaoTest<E extends BaseEntity, D extends BaseDao> {
         } catch(BaseDaoImpl.NotFoundException e){}
     }
 
+
+
     protected Set<ConstraintViolation<E>> validate(D dao,E entity){
         return dao.validate(entity);
     }

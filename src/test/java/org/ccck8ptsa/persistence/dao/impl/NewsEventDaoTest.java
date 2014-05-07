@@ -28,12 +28,15 @@ package org.ccck8ptsa.persistence.dao.impl;
 
 import org.ccck8ptsa.persistence.dao.api.NewsEventDao;
 import org.ccck8ptsa.persistence.entity.NewsEvent;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * NewsEventDaoTest.java
@@ -50,11 +53,18 @@ public class NewsEventDaoTest extends BaseDaoTest<NewsEvent, NewsEventDao>{
     @Autowired
     private NewsEventDao newsEventDao;
 
+    @Test
+    public void delete(){
+        super.doDelete(newsEventDao);
+    }
+
     @Override
     protected NewsEvent doInsert() {
         NewsEvent newsEvent = new NewsEvent();
         newsEvent.setBody("BODY");
         newsEvent.setTitle("TITLE");
-        return null;
+        NewsEvent inserted = newsEventDao.create(newsEvent);
+        assertNotNull("News event not inserted",inserted);
+        return inserted;
     }
 }
