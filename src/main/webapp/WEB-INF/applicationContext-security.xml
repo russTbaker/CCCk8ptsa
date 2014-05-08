@@ -7,12 +7,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
     <sec:http auto-config="true">
-        <!--<sec:intercept-url pattern="/admin/*.htm" access="hasAnyRole('ROLE_LOCAL_ADMIN','ROLE_SUPER_ADMIN')" requires-channel="https"/>-->
+        <sec:intercept-url pattern="/events.htm" access="ROLE_USER"/>
         <!--<sec:intercept-url pattern="/admin/superadmin/**" access="hasRole('ROLE_SUPER_ADMIN')" requires-channel="https"/>-->
         <!--<sec:intercept-url pattern="/publish/**" access="hasAnyRole('ROLE_LOCAL_ADMIN','ROLE_SUPER_ADMIN','ROLE_PUBLISHER')" requires-channel="https"/>-->
         <!--<sec:intercept-url pattern="/reporting/**" access="hasAnyRole('ROLE_LOCAL_ADMIN','ROLE_SUPER_ADMIN','ROLE_PUBLISHER')" requires-channel="https"/>-->
         <!--<sec:intercept-url pattern="/welcome.htm*" access="hasAnyRole('ROLE_LOCAL_ADMIN','ROLE_SUPER_ADMIN','ROLE_PUBLISHER','ROLE_USER')" requires-channel="https"/>-->
-
+    <sec:http-basic/>
     </sec:http>
 
     <!--<sec:authentication-manager alias="authenticationManager">-->
@@ -22,7 +22,7 @@
     <sec:authentication-manager>
         <sec:authentication-provider>
             <sec:user-service>
-                <sec:user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN"/>
+                <sec:user name="ptsaAdministrator" password="password" authorities="ROLE_USER, ROLE_ADMIN"/>
                 <sec:user name="bob" password="bobspassword" authorities="ROLE_USER"/>
             </sec:user-service>
         </sec:authentication-provider>
@@ -31,7 +31,7 @@
 
     <!-- This filter handles a Single Logout Request from the CAS Server -->
     <!--<bean id="singleLogoutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter"/>-->
-    <!--&lt;!&ndash; This filter redirects to the CAS Server to signal Single Logout should be performed &ndash;&gt;-->
+    <!--<This filter redirects to the CAS Server to signal Single Logout should be performed -->
     <!--<bean id="requestSingleLogoutFilter"-->
           <!--class="org.springframework.security.web.authentication.logout.LogoutFilter">-->
         <!--<constructor-arg value="https://lappy:9443/cas/logout"/>-->

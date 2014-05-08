@@ -2,6 +2,7 @@ package org.ccck8ptsa.web.forms;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,8 +12,9 @@ public class EventForm implements Serializable{
     private String id;
     private Timestamp eventTimestamp;
     private String description;
-    private List<SponsorForm> sponsorForms;
-    private List<NewsEventForm> newsEventForms;
+    private String title;
+    private List<SponsorForm> sponsorForms = new ArrayList<SponsorForm>(0);
+    private List<NewsEventForm> newsEventForms = new ArrayList<NewsEventForm>(0);
 
     public String getId() {
         return id;
@@ -28,6 +30,14 @@ public class EventForm implements Serializable{
 
     public void setEventTimestamp(Timestamp eventTimestamp) {
         this.eventTimestamp = eventTimestamp;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {

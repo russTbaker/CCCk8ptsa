@@ -39,7 +39,7 @@
 </head>
 <body margin-left:0>
 <%--<div align="center">--%>
-    <table id="mainlayout" border="0" cellpadding="0" cellspacing="0">
+    <table id="mainlayout" border="0" cellpadding="0" cellspacing="0" width="100%">
         <col width="10%">
         <col width="80%">
         <col width="10%">

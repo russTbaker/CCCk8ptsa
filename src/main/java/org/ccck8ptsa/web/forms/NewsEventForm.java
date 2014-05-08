@@ -1,7 +1,5 @@
 package org.ccck8ptsa.web.forms;
 
-import org.ccck8ptsa.persistence.entity.Event;
-
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -14,7 +12,7 @@ public class NewsEventForm implements Serializable{
 
     private Timestamp modifyDate;
 
-    private Event event;
+    private EventForm eventForm;
 
     private String body;
 
@@ -36,12 +34,12 @@ public class NewsEventForm implements Serializable{
         this.modifyDate = modifyDate;
     }
 
-    public Event getEvent() {
-        return event;
+    public EventForm getEventForm() {
+        return eventForm;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    public void setEventForm(EventForm eventForm) {
+        this.eventForm = eventForm;
     }
 
     public String getBody() {

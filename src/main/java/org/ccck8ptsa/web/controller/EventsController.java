@@ -70,7 +70,18 @@ public class EventsController {
         return "welcome";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping( method = RequestMethod.GET)
+    public String getAddEventForm(ModelMap model, HttpServletRequest request){
+        EventForm eventForm = new EventForm();
+        SponsorForm sponsorForm = new SponsorForm();
+        eventForm.getSponsorForms().add(sponsorForm);
+        NewsEventForm newsEventForm = new NewsEventForm();
+        eventForm.getNewsEventForms().add(newsEventForm);
+        model.addAttribute("eventForm",eventForm);
+        return "events";
+    }
+
+    @RequestMapping(value="/addevent",method = RequestMethod.POST)
     public String createEvent(ModelMap model, @Valid EventForm eventForm) {
         createEvent(eventForm);
         model.addAttribute("eventForm", eventForm);
@@ -83,8 +94,7 @@ public class EventsController {
         Timestamp sevenDaysOutTimestamp = new Timestamp(sevenDaysOut.getTime());
 
         Timestamp nowTimestamp = new Timestamp(new Date().getTime());
-        List<Event> upcomingEvents = eventService.getEventsByDateRange(nowTimestamp, sevenDaysOutTimestamp, oneWeek);
-        return upcomingEvents;
+        return eventService.getEventsByDateRange(nowTimestamp, sevenDaysOutTimestamp, oneWeek);
     }
 
     private List<Event> getThisMonthsEvents() {
@@ -94,9 +104,8 @@ public class EventsController {
         Timestamp endMonthTimestamp = new Timestamp(endOfMonth.getTime());
 
         // Get the full months TODO: figure out how to find how many days left in month
-        List<Event> thisMonthsEvents = eventService.getEventsByDateRange(startMonthTimestamp,
+        return eventService.getEventsByDateRange(startMonthTimestamp,
                 endMonthTimestamp, 31);
-        return thisMonthsEvents;
     }
 
 
