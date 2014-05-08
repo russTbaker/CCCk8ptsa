@@ -1,32 +1,27 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript"
-        src="<c:url value='/resources/js/jquery-2.0.3.min.js'/>"></script>
+<link rel="stylesheet" type="text/css" href="../../../resources/css/csshorizontalmenu.css" />
 
+<script type="text/javascript" >
+    var cssmenuids=["cssmenu1"] //Enter id(s) of CSS Horizontal UL menus, separated by commas
+    var csssubmenuoffset=-1 //Offset of submenus from main menu. Default is 0 pixels.
 
-<script type="text/javascript">
-    var cssmenuids = ["cssmenu1"] //Enter id(s) of CSS Horizontal UL menus, separated by commas
-    var csssubmenuoffset = -1 //Offset of submenus from main menu. Default is 0 pixels.
-
-    function createcssmenu2() {
-        for (var i = 0; i < cssmenuids.length; i++) {
-            var ultags = document.getElementById(cssmenuids[i]).getElementsByTagName("ul")
-            for (var t = 0; t < ultags.length; t++) {
-                ultags[t].style.top = ultags[t].parentNode.offsetHeight + csssubmenuoffset + "px"
-                var spanref = document.createElement("span")
-                spanref.className = "arrowdiv"
-                spanref.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;"
+    function createcssmenu2(){
+        for (var i=0; i<cssmenuids.length; i++){
+            var ultags=document.getElementById(cssmenuids[i]).getElementsByTagName("ul")
+            for (var t=0; t<ultags.length; t++){
+                ultags[t].style.top=ultags[t].parentNode.offsetHeight+csssubmenuoffset+"px"
+                var spanref=document.createElement("span")
+                spanref.className="arrowdiv"
+                spanref.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;"
                 ultags[t].parentNode.getElementsByTagName("a")[0].appendChild(spanref)
-                ultags[t].parentNode.onmouseover = function () {
-                    this.style.zIndex = 100
-                    this.getElementsByTagName("ul")[0].style.visibility = "visible"
-                    this.getElementsByTagName("ul")[0].style.zIndex = 0
+                ultags[t].parentNode.onmouseover=function(){
+                    this.style.zIndex=100
+                    this.getElementsByTagName("ul")[0].style.visibility="visible"
+                    this.getElementsByTagName("ul")[0].style.zIndex=0
                 }
-                ultags[t].parentNode.onmouseout = function () {
-                    this.style.zIndex = 0
-                    this.getElementsByTagName("ul")[0].style.visibility = "hidden"
-                    this.getElementsByTagName("ul")[0].style.zIndex = 100
+                ultags[t].parentNode.onmouseout=function(){
+                    this.style.zIndex=0
+                    this.getElementsByTagName("ul")[0].style.visibility="hidden"
+                    this.getElementsByTagName("ul")[0].style.zIndex=100
                 }
             }
         }
@@ -47,9 +42,6 @@
      ***********************************************/
 
 </script>
-<!-- END JavaScript -->
-<link rel="stylesheet" href="<c:url value='/resources/css/csshorizontalmenu.css'/>">
-
 <div class="horizontalcssmenu">
     <ul id="cssmenu1">
         <li><a href="#">Home</a></li>
@@ -130,5 +122,6 @@
             </ul>
         </li>
     </ul>
-    <br style="clear: left;"/>
+    <br style="clear: left;" />
 </div>
+<p id="iepara">Rest of content here</p>
